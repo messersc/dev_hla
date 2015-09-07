@@ -113,10 +113,3 @@ Soihgw	FC1-NA12878-01	Djch4q	BCRTGEN2015	mholtgre	2015-08-31T16:40:11.069745	{"p
 S8u40k	FC1-NA12878-04	Djch4q	BCRTGEN2015	mholtgre	2015-08-31T16:40:15.809432	{"platform": "HiSeq 2500", "seq_type": "WES", "source": "Illumina BaseSpace"}
 Srdhhr	FC1-NA12878-07	Djch4q	BCRTGEN2015	mholtgre	2015-08-31T16:40:20.473346	{"platform": "HiSeq 2500", "seq_type": "WES", "source": "Illumina BaseSpace"}
 Svcd3a	FC1-NA12878-10	Djch4q	BCRTGEN2015	mholtgre	2015-08-31T16:40:24.078198	{"platform": "HiSeq 2500", "seq_type": "WES", "source": "Illumina BaseSpace"}
-S234rr	CELL_ID_108	Dcw1m7	TCELL2015	cmessers	2015-09-04T13:53:37.808768	{"cell_table": "normal", "protocol": "WES"}
-Smqcic	CELL_ID_109	Dcw1m7	TCELL2015	cmessers	2015-09-04T13:53:37.917674	{"cell_table": "normal", "protocol": "WES"}
-Sp1t1g	CELL_ID_122	Dcw1m7	TCELL2015	cmessers	2015-09-04T13:53:38.023479	{"cell_table": "normal", "protocol": "WES"}
-Sc9fgs	CELL_ID_13	Dcw1m7	TCELL2015	cmessers	2015-09-04T13:53:38.128863	{"cell_table": "normal", "protocol": "WES"}
-Spx5to	CELL_ID_16	Dcw1m7	TCELL2015	cmessers	2015-09-04T13:53:38.234713	{"cell_table": "normal", "protocol": "WES"}
-Snklzj	CELL_ID_163	Dcw1m7	TCELL2015	cmessers	2015-09-04T13:53:38.341061	{"cell_table": "normal", "protocol": "WES"}
-Sqe2e8	CELL_ID_165	Dcw1m7	TCELL2015	cmessers	2015-09-04T13:53:44.694016	{"cell_table": "normal", "protocol": "WES"}
