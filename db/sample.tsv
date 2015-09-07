@@ -113,3 +113,23 @@ Soihgw	FC1-NA12878-01	Djch4q	BCRTGEN2015	mholtgre	2015-08-31T16:40:11.069745	{"p
 S8u40k	FC1-NA12878-04	Djch4q	BCRTGEN2015	mholtgre	2015-08-31T16:40:15.809432	{"platform": "HiSeq 2500", "seq_type": "WES", "source": "Illumina BaseSpace"}
 Srdhhr	FC1-NA12878-07	Djch4q	BCRTGEN2015	mholtgre	2015-08-31T16:40:20.473346	{"platform": "HiSeq 2500", "seq_type": "WES", "source": "Illumina BaseSpace"}
 Svcd3a	FC1-NA12878-10	Djch4q	BCRTGEN2015	mholtgre	2015-08-31T16:40:24.078198	{"platform": "HiSeq 2500", "seq_type": "WES", "source": "Illumina BaseSpace"}
+S7gc0f	CELL_ID_108_normal_panel	Dy4q3t	HLA	cmessers	2015-09-07T17:37:10.767318	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+S6srm1	CELL_ID_109_normal_panel	Dwl60h	HLA	cmessers	2015-09-07T17:37:10.880845	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+S5bw1b	CELL_ID_122_normal_panel	Dhdde8	HLA	cmessers	2015-09-07T17:37:10.999136	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+Sf31yw	CELL_ID_13_normal_panel	Dq14y7	HLA	cmessers	2015-09-07T17:37:11.116358	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+Skarx1	CELL_ID_16_normal_panel	D0yyx4	HLA	cmessers	2015-09-07T17:37:11.234144	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+Snorch	CELL_ID_163_normal_panel	Drf2r0	HLA	cmessers	2015-09-07T17:37:11.350318	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+Sb2lwj	CELL_ID_165_normal_panel	Dcrd2r	HLA	cmessers	2015-09-07T17:37:11.467307	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+S4eyjs	CELL_ID_18_normal_panel	D5ylg2	HLA	cmessers	2015-09-07T17:37:11.582864	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+Sysihr	CELL_ID_21_normal_panel	Duklj3	HLA	cmessers	2015-09-07T17:37:11.696292	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+S72yzh	CELL_ID_235_normal_panel	Dcfxhm	HLA	cmessers	2015-09-07T17:37:11.808778	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+Sifkjs	CELL_ID_36_normal_panel	Dgusx7	HLA	cmessers	2015-09-07T17:37:11.922064	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+Sroy2k	CELL_ID_38_normal_panel	Dlwm6u	HLA	cmessers	2015-09-07T17:37:12.036861	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+S4gloa	CELL_ID_39_normal_panel	Dbr2l3	HLA	cmessers	2015-09-07T17:37:12.150635	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+Sat0j4	CELL_ID_41_normal_panel	Dgy8uc	HLA	cmessers	2015-09-07T17:37:12.263418	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+S6jz6g	CELL_ID_45_normal_panel	Dysjxt	HLA	cmessers	2015-09-07T17:37:12.375740	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+Sqlipy	CELL_ID_56_normal_panel	Djnej1	HLA	cmessers	2015-09-07T17:37:12.488190	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+S0s7z2	CELL_ID_6_normal_panel	D84h47	HLA	cmessers	2015-09-07T17:37:12.601873	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+S73bde	CELL_ID_79_normal_panel	D4n1mv	HLA	cmessers	2015-09-07T17:37:12.717551	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+Snb9yz	CELL_ID_94_normal_panel	Dpwrqz	HLA	cmessers	2015-09-07T17:37:12.829903	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
+Sgutdd	CELL_ID_99_normal_panel	D85chr	HLA	cmessers	2015-09-07T17:37:12.942507	{"cell_table": "normal", "platform": "HiSeq", "seq_typ": "panel"}
