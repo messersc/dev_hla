@@ -1,0 +1,7 @@
+CELL_ID_108=$(./manage_table.py add_sample --customer-id CELL_ID_108 --donor-pk ${HLA} --project-pk ${PROJECT} --info protocol=WES --info cell_table=normal)
+CELL_ID_109=$(./manage_table.py add_sample --customer-id CELL_ID_109 --donor-pk ${HLA} --project-pk ${PROJECT} --info protocol=WES --info cell_table=normal)
+CELL_ID_122=$(./manage_table.py add_sample --customer-id CELL_ID_122 --donor-pk ${HLA} --project-pk ${PROJECT} --info protocol=WES --info cell_table=normal)
+CELL_ID_13=$(./manage_table.py add_sample --customer-id CELL_ID_13 --donor-pk ${HLA} --project-pk ${PROJECT} --info protocol=WES --info cell_table=normal)
+CELL_ID_16=$(./manage_table.py add_sample --customer-id CELL_ID_16 --donor-pk ${HLA} --project-pk ${PROJECT} --info protocol=WES --info cell_table=normal)
+CELL_ID_163=$(./manage_table.py add_sample --customer-id CELL_ID_163 --donor-pk ${HLA} --project-pk ${PROJECT} --info protocol=WES --info cell_table=normal)
+CELL_ID_165=$(./manage_table.py add_sample --customer-id CELL_ID_165 --donor-pk ${HLA} --project-pk ${PROJECT} --info protocol=WES --info cell_table=normal)

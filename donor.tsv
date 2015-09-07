@@ -1,0 +1,94 @@
+#donor_pk	customer_id	project_pk	added_by	added_at	info_json
+Dzyck0	C59	TCELL2015	mholtgre	2015-08-10T18:09:13.378222	{}
+Dy5tgv	C63	TCELL2015	mholtgre	2015-08-10T18:09:13.428419	{}
+Dznu7n	C80	TCELL2015	mholtgre	2015-08-10T18:09:13.473928	{}
+D9zwym	BIH-002	TCELL2015	mholtgre	2015-08-10T18:09:13.929582	{}
+D70uhg	BIH-004	TCELL2015	mholtgre	2015-08-10T18:09:13.973958	{}
+Dlxghb	BIH-016	TCELL2015	mholtgre	2015-08-10T18:09:14.018454	{}
+D6kmhe	BIH-021	TCELL2015	mholtgre	2015-08-10T18:09:14.061383	{}
+Djch4q	NA12878	BCRTGEN2015	mholtgre	2015-08-14T15:49:43.323682	{"disease": "affected", "gender": "female", "source": "NCBI", "father": "Dut92j", "mother": "D06f1g"}
+Dut92j	NA12891	BCRTGEN2015	mholtgre	2015-08-14T15:49:49.823970	{"disease": "affected", "gender": "male", "source": "NCBI"}
+D06f1g	NA12892	BCRTGEN2015	mholtgre	2015-08-14T15:49:51.946988	{"disease": "affected", "gender": "female", "source": "NCBI"}
+D7pvbp	13-1450	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.901820	{"disease": "MISSING", "gender": "MISSING"}
+Dggb64	13-1451	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.050541	{"disease": "MISSING", "gender": "MISSING"}
+Dyg48v	13-1452	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.180753	{"disease": "MISSING", "gender": "MISSING"}
+D9z786	1008	BCRTGEN2015	mholtgre	2015-08-25T17:04:59.457837	{"disease": "affected", "gender": "female", "father": "Dg9qn3", "mother": "Dybvhf"}
+D22fxw	1267	BCRTGEN2015	mholtgre	2015-08-25T17:04:59.637763	{"disease": "affected", "gender": "male", "father": "D7bwgl", "mother": "Dxcptq"}
+Do0um7	2662	BCRTGEN2015	mholtgre	2015-08-25T17:04:59.793189	{"disease": "affected", "gender": "male", "father": "Dtlefm", "mother": "Dfcys1"}
+Dfcys1	2663	BCRTGEN2015	mholtgre	2015-08-25T17:04:59.894827	{"disease": "unaffected", "gender": "female"}
+Dtlefm	2664	BCRTGEN2015	mholtgre	2015-08-25T17:04:59.982834	{"disease": "unaffected", "gender": "male"}
+Dcznje	3173	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.289605	{"disease": "affected", "gender": "male", "father": "D1dtbj", "mother": "Dbucxg"}
+D1dtbj	3174	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.390551	{"disease": "unaffected", "gender": "male"}
+Dbucxg	3175	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.516700	{"disease": "unaffected", "gender": "female"}
+Dup2mk	3267	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.649023	{"disease": "unaffected", "gender": "female"}
+Dbdg1g	3268	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.811860	{"disease": "unaffected", "gender": "male"}
+D3xaqh	3315	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.969210	{"disease": "affected", "gender": "male", "father": "D1664y", "mother": "Dk8zig"}
+Dk8zig	3317	BCRTGEN2015	mholtgre	2015-08-25T17:05:02.135873	{"disease": "unaffected", "gender": "female"}
+D1664y	3318	BCRTGEN2015	mholtgre	2015-08-25T17:05:02.315559	{"disease": "unaffected", "gender": "male"}
+Djouj4	3321	BCRTGEN2015	mholtgre	2015-08-25T17:05:02.479943	{"disease": "affected", "gender": "male", "father": "D6t829", "mother": "D6uazq"}
+D6uazq	3322	BCRTGEN2015	mholtgre	2015-08-25T17:05:02.643319	{"disease": "unaffected", "gender": "female"}
+D6t829	3323	BCRTGEN2015	mholtgre	2015-08-25T17:05:02.814207	{"disease": "unaffected", "gender": "male"}
+Dn10kv	3325	BCRTGEN2015	mholtgre	2015-08-25T17:05:02.945766	{"disease": "affected", "gender": "female", "father": "Dbdg1g", "mother": "Dup2mk"}
+Dxcptq	3414	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.067762	{"disease": "unaffected", "gender": "female"}
+D7bwgl	3439	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.153821	{"disease": "unaffected", "gender": "male"}
+Dpom2t	3553	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.049735	{"disease": "affected", "gender": "male", "father": "D4ucue", "mother": "Ds7s5i"}
+Ds7s5i	3554	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.143657	{"disease": "unaffected", "gender": "female"}
+D4ucue	3555	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.245769	{"disease": "unaffected", "gender": "male"}
+Dhs6yr	3586	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.251087	{"disease": "affected", "gender": "male", "father": "Dbqsbq", "mother": "Dmybgf"}
+Dmybgf	3587	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.378002	{"disease": "unaffected", "gender": "female"}
+Dbqsbq	3588	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.489234	{"disease": "unaffected", "gender": "male"}
+Dj0gg5	3590	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.337370	{"disease": "affected", "gender": "female", "father": "D6yjyb", "mother": "Doy1sg"}
+Doy1sg	3591	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.426727	{"disease": "unaffected", "gender": "female"}
+D6yjyb	3592	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.512274	{"disease": "unaffected", "gender": "male"}
+D2fhal	4838	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.590474	{"disease": "affected", "gender": "male", "father": "Dcwogr", "mother": "Dq1tu8"}
+Dq1tu8	4839	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.688509	{"disease": "unaffected", "gender": "female"}
+Dcwogr	4840	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.798325	{"disease": "unaffected", "gender": "male"}
+Dmlbz1	R13-23	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.596681	{"disease": "affected", "gender": "female", "father": "D9uqvm", "mother": "D4c8di"}
+D4c8di	R13-24	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.688066	{"disease": "unaffected", "gender": "female"}
+Dnniz6	R14-130	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.774763	{"disease": "affected", "gender": "male", "father": "D8631i", "mother": "Denmzx"}
+Denmzx	R14-135	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.896708	{"disease": "unaffected", "gender": "female"}
+D8631i	R14-136	BCRTGEN2015	mholtgre	2015-08-25T17:05:04.051325	{"disease": "unaffected", "gender": "male"}
+Dybvhf	R14-139	BCRTGEN2015	mholtgre	2015-08-25T17:05:04.232085	{"disease": "unaffected", "gender": "female"}
+Dg9qn3	R14-140	BCRTGEN2015	mholtgre	2015-08-25T17:05:04.392279	{"disease": "unaffected", "gender": "male"}
+D7i349	R14-141	BCRTGEN2015	mholtgre	2015-08-25T17:05:04.550894	{"disease": "affected", "gender": "male", "father": "Die8l9", "mother": "Db9hgb"}
+Db9hgb	R14-142	BCRTGEN2015	mholtgre	2015-08-25T17:05:04.687106	{"disease": "unaffected", "gender": "female"}
+Die8l9	R14-143	BCRTGEN2015	mholtgre	2015-08-25T17:05:04.808436	{"disease": "unaffected", "gender": "male"}
+D9uqvm	R14-219	BCRTGEN2015	mholtgre	2015-08-25T17:05:04.959966	{"disease": "unaffected", "gender": "male"}
+Dfis25	R14-225	BCRTGEN2015	mholtgre	2015-08-25T17:05:05.108634	{"disease": "affected", "gender": "male", "father": "Dqa8d6", "mother": "D0nob8"}
+D0nob8	R14-229	BCRTGEN2015	mholtgre	2015-08-25T17:05:05.256596	{"disease": "unaffected", "gender": "female"}
+Dqa8d6	R14-230	BCRTGEN2015	mholtgre	2015-08-25T17:05:05.394403	{"disease": "unaffected", "gender": "male"}
+D5m5a0	R14-235	BCRTGEN2015	mholtgre	2015-08-25T17:05:05.569493	{"disease": "affected", "gender": "male", "father": "Du6d7x", "mother": "Ddk7fs"}
+Ddk7fs	R14-236	BCRTGEN2015	mholtgre	2015-08-25T17:05:05.751458	{"disease": "unaffected", "gender": "female"}
+Du6d7x	R14-237	BCRTGEN2015	mholtgre	2015-08-25T17:05:05.942672	{"disease": "unaffected", "gender": "male"}
+Dgw5mh	R14-261	BCRTGEN2015	mholtgre	2015-08-25T17:05:06.120661	{"disease": "MISSING", "gender": "MISSING"}
+Dbk2ew	R14-262	BCRTGEN2015	mholtgre	2015-08-25T17:05:06.278602	{"disease": "MISSING", "gender": "MISSING"}
+Dnfgec	R14-263	BCRTGEN2015	mholtgre	2015-08-25T17:05:06.432362	{"disease": "MISSING", "gender": "MISSING"}
+Dmtefk	R14-264	BCRTGEN2015	mholtgre	2015-08-25T17:05:06.576902	{"disease": "MISSING", "gender": "MISSING"}
+Dxilz0	R14-265	BCRTGEN2015	mholtgre	2015-08-25T17:05:06.748391	{"disease": "MISSING", "gender": "MISSING"}
+D8uqaa	R14-266	BCRTGEN2015	mholtgre	2015-08-25T17:05:06.912798	{"disease": "MISSING", "gender": "MISSING"}
+Dg49l9	R14-267	BCRTGEN2015	mholtgre	2015-08-25T17:05:07.080012	{"disease": "MISSING", "gender": "MISSING"}
+D1p82a	R14-268	BCRTGEN2015	mholtgre	2015-08-25T17:05:07.227028	{"disease": "MISSING", "gender": "MISSING"}
+Da22jw	R14-269	BCRTGEN2015	mholtgre	2015-08-25T17:05:07.410412	{"disease": "MISSING", "gender": "MISSING"}
+Dpyxsj	R14-270	BCRTGEN2015	mholtgre	2015-08-25T17:05:07.608522	{"disease": "MISSING", "gender": "MISSING"}
+D09e0b	R14-271	BCRTGEN2015	mholtgre	2015-08-25T17:05:07.747537	{"disease": "MISSING", "gender": "MISSING"}
+D8uf1v	R14-272	BCRTGEN2015	mholtgre	2015-08-25T17:05:07.886327	{"disease": "MISSING", "gender": "MISSING"}
+D6ykuh	R14-273	BCRTGEN2015	mholtgre	2015-08-25T17:05:07.988653	{"disease": "MISSING", "gender": "MISSING"}
+D2ngfq	R14-274	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.073715	{"disease": "MISSING", "gender": "MISSING"}
+Dvm837	R14-275	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.172408	{"disease": "MISSING", "gender": "MISSING"}
+D64674	R14-276	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.274293	{"disease": "MISSING", "gender": "MISSING"}
+D4ublt	R14-277	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.358129	{"disease": "MISSING", "gender": "MISSING"}
+Dybzdl	R14-278	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.468307	{"disease": "MISSING", "gender": "MISSING"}
+D4fw1b	R14-279	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.574856	{"disease": "MISSING", "gender": "MISSING"}
+Dxg6hp	R14-280	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.685866	{"disease": "MISSING", "gender": "MISSING"}
+Dgdf7c	R14-281	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.790653	{"disease": "MISSING", "gender": "MISSING"}
+Dztccb	R14-282	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.926701	{"disease": "MISSING", "gender": "MISSING"}
+Dwk0gw	R14-283	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.080420	{"disease": "MISSING", "gender": "MISSING"}
+Dwssco	R14-284	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.215685	{"disease": "MISSING", "gender": "MISSING"}
+Douwyy	R14-285	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.335359	{"disease": "MISSING", "gender": "MISSING"}
+Dtscxm	R14-288	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.455749	{"disease": "unaffected", "disease": "affected", "gender": "male", "father": "D9wja7", "mother": "D0jqj2"}
+D0jqj2	R14-289	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.580374	{"disease": "unaffected", "gender": "female"}
+D9wja7	R14-290	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.756745	{"disease": "unaffected", "gender": "male"}
+D54qj3	R14-291	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.895872	{"disease": "unaffected", "disease": "affected", "gender": "female", "father": "Dtetzz", "mother": "D9nwl0"}
+D9nwl0	R14-292	BCRTGEN2015	mholtgre	2015-08-25T17:05:10.001186	{"disease": "unaffected", "gender": "female"}
+Dtetzz	R14-293	BCRTGEN2015	mholtgre	2015-08-25T17:05:10.163366	{"disease": "unaffected", "gender": "male"}
+Dcw1m7	HLAssign	TCELL2015	cmessers	2015-09-04T12:57:24.253244	{}

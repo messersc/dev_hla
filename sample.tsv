@@ -1,0 +1,122 @@
+#sample_pk	customer_id	donor_pk	project_pk	added_by	added_at	info_json
+S1n24n	C59_normal_wes	Dzyck0	TCELL2015	mholtgre	2015-08-10T18:09:13.518003	{"cell_type": "blood", "enrichment_kit": "AgilentV5", "folder": "Sample_3440-4", "seq_type": "WES"}
+Shrrgd	C59_tumor_wes	Dzyck0	TCELL2015	mholtgre	2015-08-10T18:09:13.567518	{"cell_type": "tumor", "enrichment_kit": "AgilentV5", "folder": "Sample_3443-39", "seq_type": "WES"}
+Szo096	C59_tumor_rna	Dzyck0	TCELL2015	mholtgre	2015-08-10T18:09:13.610722	{"cell_type": "tumor", "folder": "Sample_3449-6", "seq_type": "RNA-seq"}
+Sfaz63	C63_normal_wes	Dy5tgv	TCELL2015	mholtgre	2015-08-10T18:09:13.654823	{"cell_type": "blood", "enrichment_kit": "AgilentV5", "folder": "Sample_3441-6", "seq_type": "WES"}
+Slx6qe	C63_tumor_wes	Dy5tgv	TCELL2015	mholtgre	2015-08-10T18:09:13.698073	{"cell_type": "tumor", "enrichment_kit": "AgilentV5", "folder": "Sample_3444-43", "seq_type": "WES"}
+Swyvcb	C63_tumor_rna	Dy5tgv	TCELL2015	mholtgre	2015-08-10T18:09:13.745394	{"cell_type": "tumor", "folder": "Sample_3450-7", "seq_type": "RNA-seq"}
+S5fzzx	C80_normal_wes	Dznu7n	TCELL2015	mholtgre	2015-08-10T18:09:13.790904	{"cell_type": "blood", "enrichment_kit": "AgilentV5", "folder": "Sample_3442-12", "seq_type": "WES"}
+Sgut62	C80_tumor_wes	Dznu7n	TCELL2015	mholtgre	2015-08-10T18:09:13.837735	{"cell_type": "tumor", "enrichment_kit": "AgilentV5", "folder": "Sample_3445-47", "seq_type": "WES"}
+Sv9mo3	C80_tumor_rna	Dznu7n	TCELL2015	mholtgre	2015-08-10T18:09:13.883031	{"cell_type": "tumor", "folder": "Sample_3451-12", "seq_type": "RNA-seq"}
+Sb396w	BIH-002_normal_wes	D9zwym	TCELL2015	mholtgre	2015-08-10T18:09:14.108283	{"cell_type": "blood", "enrichment_kit": "AgilentV4", "folder": "Sample_CH_MH_014", "seq_type": "WES"}
+Sdnag4	BIH-002_tumor_wes	D9zwym	TCELL2015	mholtgre	2015-08-10T18:09:14.153026	{"cell_type": "tumor", "enrichment_kit": "AgilentV4", "folder": "Sample_CH_MH_013", "seq_type": "WES"}
+Sacxtf	BIH-002_tumor_rna	D9zwym	TCELL2015	mholtgre	2015-08-10T18:09:14.197619	{"cell_type": "tumor", "folder": "Sample_CH_MH_009", "seq_type": "RNA-seq"}
+Sgdofk	BIH-004_normal_wes	D70uhg	TCELL2015	mholtgre	2015-08-10T18:09:14.243799	{"cell_type": "blood", "enrichment_kit": "AgilentV4", "folder": "Sample_CH_MH_016", "seq_type": "WES"}
+Stao3p	BIH-004_tumor_wes	D70uhg	TCELL2015	mholtgre	2015-08-10T18:09:14.289556	{"cell_type": "tumor", "enrichment_kit": "AgilentV4", "folder": "Sample_CH_MH_015", "seq_type": "WES"}
+Slhed7	BIH-004_tumor_rna	D70uhg	TCELL2015	mholtgre	2015-08-10T18:09:14.334912	{"cell_type": "tumor", "folder": "Sample_CH_MH_010", "seq_type": "RNA-seq"}
+S25h65	BIH-016_normal_wes	Dlxghb	TCELL2015	mholtgre	2015-08-10T18:09:14.384220	{"cell_type": "blood", "enrichment_kit": "AgilentV4", "folder": "Sample_CH_MH_018", "seq_type": "WES"}
+S6lb8e	BIH-016_tumor_wes	Dlxghb	TCELL2015	mholtgre	2015-08-10T18:09:14.431087	{"cell_type": "tumor", "enrichment_kit": "AgilentV4", "folder": "Sample_CH_MH_017", "seq_type": "WES"}
+Sq7e9i	BIH-016_tumor_rna	Dlxghb	TCELL2015	mholtgre	2015-08-10T18:09:14.480494	{"cell_type": "tumor", "folder": "Sample_CH_MH_011", "seq_type": "RNA-seq"}
+Svp25l	BIH-021_normal_wes	D6kmhe	TCELL2015	mholtgre	2015-08-10T18:09:14.528213	{"cell_type": "blood", "enrichment_kit": "AgilentV4", "folder": "Sample_CH_MH_020", "seq_type": "WES"}
+Sqisgo	BIH-021_tumor_wes	D6kmhe	TCELL2015	mholtgre	2015-08-10T18:09:14.576334	{"cell_type": "tumor", "enrichment_kit": "AgilentV4", "folder": "Sample_CH_MH_019", "seq_type": "WES"}
+Suwgmc	BIH-021_tumor_rna	D6kmhe	TCELL2015	mholtgre	2015-08-10T18:09:14.622079	{"cell_type": "tumor", "folder": "Sample_CH_MH_012", "seq_type": "RNA-seq"}
+S1pbmd	ERR194147	Djch4q	BCRTGEN2015	mholtgre	2015-08-14T15:52:06.097567	{"seq_type": "WGS", "source": "NCBI"}
+Sfx4xx	ERR194160	Dut92j	BCRTGEN2015	mholtgre	2015-08-14T15:52:36.801184	{"seq_type": "WGS", "source": "NCBI"}
+S8x8ya	ERR194161	D06f1g	BCRTGEN2015	mholtgre	2015-08-14T15:52:57.473812	{"seq_type": "WGS", "source": "NCBI"}
+S0s0l3	10N498DRR_L1	Djch4q	BCRTGEN2015	mholtgre	2015-08-25T16:00:59.544323	{"platform": "Illumina X Ten", "seq_type": "WGS", "source": "Illumina BaseSpace"}
+Sif26h	10N498DRR_L3	Djch4q	BCRTGEN2015	mholtgre	2015-08-25T16:00:59.588428	{"platform": "Illumina X Ten", "seq_type": "WGS", "source": "Illumina BaseSpace"}
+Stvfbt	10N498DRR_L5	Djch4q	BCRTGEN2015	mholtgre	2015-08-25T16:00:59.630652	{"platform": "Illumina X Ten", "seq_type": "WGS", "source": "Illumina BaseSpace"}
+Sxw6ex	10N498DRR_L7	Djch4q	BCRTGEN2015	mholtgre	2015-08-25T16:00:59.676051	{"platform": "Illumina X Ten", "seq_type": "WGS", "source": "Illumina BaseSpace"}
+S46vs9	-1008	D9z786	BCRTGEN2015	mholtgre	2015-08-25T17:04:59.553668	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Su2nig	-1267	D22fxw	BCRTGEN2015	mholtgre	2015-08-25T17:04:59.725476	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+So0t8e	-2662	Do0um7	BCRTGEN2015	mholtgre	2015-08-25T17:04:59.841851	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+S755tu	-2663	Dfcys1	BCRTGEN2015	mholtgre	2015-08-25T17:04:59.936768	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sat362	-2664	Dtlefm	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.024326	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Si1o8v	-3414	Dxcptq	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.109851	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Se8hkc	-3439	D7bwgl	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.200163	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Si3jdr	-3586	Dhs6yr	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.309831	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sqe15n	-3587	Dmybgf	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.436557	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sqfjl7	-3588	Dbqsbq	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.541949	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sy765r	-4838	D2fhal	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.639740	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sy8iqq	-4839	Dq1tu8	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.738743	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+S5gezz	-4840	Dcwogr	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.849774	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Shit4g	13-1450	D7pvbp	BCRTGEN2015	mholtgre	2015-08-25T17:05:00.970929	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Su9o54	13-1451	Dggb64	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.119070	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Skv66y	13-1452	Dyg48v	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.236759	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Syj2p3	3173	Dcznje	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.340845	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Swobg2	3174	D1dtbj	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.451136	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sdsnka	3175	Dbucxg	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.577861	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Squmny	3267	Dup2mk	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.734194	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Ssypqm	3268	Dbdg1g	BCRTGEN2015	mholtgre	2015-08-25T17:05:01.886926	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Svj3sw	3315	D3xaqh	BCRTGEN2015	mholtgre	2015-08-25T17:05:02.051306	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sarhsu	3317	Dk8zig	BCRTGEN2015	mholtgre	2015-08-25T17:05:02.229621	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sur8tb	3318	D1664y	BCRTGEN2015	mholtgre	2015-08-25T17:05:02.387581	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sfghgs	3321	Djouj4	BCRTGEN2015	mholtgre	2015-08-25T17:05:02.565283	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sk9evy	3322	D6uazq	BCRTGEN2015	mholtgre	2015-08-25T17:05:02.727411	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Skjoyn	3323	D6t829	BCRTGEN2015	mholtgre	2015-08-25T17:05:02.886263	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+S419pz	3325	Dn10kv	BCRTGEN2015	mholtgre	2015-08-25T17:05:02.988439	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sy2d79	3553	Dpom2t	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.099368	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Spt4ro	3554	Ds7s5i	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.195533	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+S49gfz	3555	D4ucue	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.294268	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+S958c8	3590	Dj0gg5	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.382288	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sg2o6s	3591	Doy1sg	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.468664	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Snklr5	3592	D6yjyb	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.553360	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sjy31q	R13-23	Dmlbz1	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.640754	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sl2a89	R13-24	D4c8di	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.730511	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Ses6qq	R14-130	Dnniz6	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.832064	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Smbz1h	R14-135	Denmzx	BCRTGEN2015	mholtgre	2015-08-25T17:05:03.962956	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Snxvag	R14-136	D8631i	BCRTGEN2015	mholtgre	2015-08-25T17:05:04.147828	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Suzvvh	R14-139	Dybvhf	BCRTGEN2015	mholtgre	2015-08-25T17:05:04.303304	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Swqzxu	R14-140	Dg9qn3	BCRTGEN2015	mholtgre	2015-08-25T17:05:04.472176	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Stzm1i	R14-141	D7i349	BCRTGEN2015	mholtgre	2015-08-25T17:05:04.629122	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Spnrhz	R14-142	Db9hgb	BCRTGEN2015	mholtgre	2015-08-25T17:05:04.751703	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+S8hc0d	R14-143	Die8l9	BCRTGEN2015	mholtgre	2015-08-25T17:05:04.874215	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Szbazu	R14-219	D9uqvm	BCRTGEN2015	mholtgre	2015-08-25T17:05:05.038303	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sh2lsp	R14-225	Dfis25	BCRTGEN2015	mholtgre	2015-08-25T17:05:05.175125	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+S3mqpi	R14-229	D0nob8	BCRTGEN2015	mholtgre	2015-08-25T17:05:05.324507	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+S00qr8	R14-230	Dqa8d6	BCRTGEN2015	mholtgre	2015-08-25T17:05:05.476039	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Szvyhv	R14-235	D5m5a0	BCRTGEN2015	mholtgre	2015-08-25T17:05:05.653212	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+S3x6oq	R14-236	Ddk7fs	BCRTGEN2015	mholtgre	2015-08-25T17:05:05.849181	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sn92wx	R14-237	Du6d7x	BCRTGEN2015	mholtgre	2015-08-25T17:05:06.031403	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Skv0nh	R14-261	Dgw5mh	BCRTGEN2015	mholtgre	2015-08-25T17:05:06.207459	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Subt40	R14-262	Dbk2ew	BCRTGEN2015	mholtgre	2015-08-25T17:05:06.363203	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Szsb9i	R14-263	Dnfgec	BCRTGEN2015	mholtgre	2015-08-25T17:05:06.493406	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sdeax2	R14-264	Dmtefk	BCRTGEN2015	mholtgre	2015-08-25T17:05:06.659041	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Skycxs	R14-265	Dxilz0	BCRTGEN2015	mholtgre	2015-08-25T17:05:06.832011	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sz8uo4	R14-266	D8uqaa	BCRTGEN2015	mholtgre	2015-08-25T17:05:06.992956	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sjt50m	R14-267	Dg49l9	BCRTGEN2015	mholtgre	2015-08-25T17:05:07.162041	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Syf4ev	R14-268	D1p82a	BCRTGEN2015	mholtgre	2015-08-25T17:05:07.319007	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+S1k95z	R14-269	Da22jw	BCRTGEN2015	mholtgre	2015-08-25T17:05:07.514731	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sx72ql	R14-270	Dpyxsj	BCRTGEN2015	mholtgre	2015-08-25T17:05:07.678439	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sw4gmi	R14-271	D09e0b	BCRTGEN2015	mholtgre	2015-08-25T17:05:07.812968	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Scqda7	R14-272	D8uf1v	BCRTGEN2015	mholtgre	2015-08-25T17:05:07.940330	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sd0p9n	R14-273	D6ykuh	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.030157	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Stas2v	R14-274	D2ngfq	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.125935	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Swebq7	R14-275	Dvm837	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.228722	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+S5wf1o	R14-276	D64674	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.315361	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sdsqi1	R14-277	D4ublt	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.414764	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sd3b04	R14-278	Dybzdl	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.518976	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sn7fky	R14-279	D4fw1b	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.631146	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sk8uku	R14-280	Dxg6hp	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.730093	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sj3bbu	R14-281	Dgdf7c	BCRTGEN2015	mholtgre	2015-08-25T17:05:08.856008	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Shcnoh	R14-282	Dztccb	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.000980	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+St083q	R14-283	Dwk0gw	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.150681	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+S1n7gm	R14-284	Dwssco	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.273278	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Su7o98	R14-285	Douwyy	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.391328	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Smsw4z	R14-288	Dtscxm	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.513385	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sph87c	R14-289	D0jqj2	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.663148	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Si12w1	R14-290	D9wja7	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.829905	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+St8p9i	R14-291	D54qj3	BCRTGEN2015	mholtgre	2015-08-25T17:05:09.943825	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+St7wyg	R14-292	D9nwl0	BCRTGEN2015	mholtgre	2015-08-25T17:05:10.081259	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Sa5d42	R14-293	Dtetzz	BCRTGEN2015	mholtgre	2015-08-25T17:05:10.235921	{"platform": "Illumina X Ten", "seq_type": "WGS"}
+Soihgw	FC1-NA12878-01	Djch4q	BCRTGEN2015	mholtgre	2015-08-31T16:40:11.069745	{"platform": "HiSeq 2500", "seq_type": "WES", "source": "Illumina BaseSpace"}
+S8u40k	FC1-NA12878-04	Djch4q	BCRTGEN2015	mholtgre	2015-08-31T16:40:15.809432	{"platform": "HiSeq 2500", "seq_type": "WES", "source": "Illumina BaseSpace"}
+Srdhhr	FC1-NA12878-07	Djch4q	BCRTGEN2015	mholtgre	2015-08-31T16:40:20.473346	{"platform": "HiSeq 2500", "seq_type": "WES", "source": "Illumina BaseSpace"}
+Svcd3a	FC1-NA12878-10	Djch4q	BCRTGEN2015	mholtgre	2015-08-31T16:40:24.078198	{"platform": "HiSeq 2500", "seq_type": "WES", "source": "Illumina BaseSpace"}
+S234rr	CELL_ID_108	Dcw1m7	TCELL2015	cmessers	2015-09-04T13:53:37.808768	{"cell_table": "normal", "protocol": "WES"}
+Smqcic	CELL_ID_109	Dcw1m7	TCELL2015	cmessers	2015-09-04T13:53:37.917674	{"cell_table": "normal", "protocol": "WES"}
+Sp1t1g	CELL_ID_122	Dcw1m7	TCELL2015	cmessers	2015-09-04T13:53:38.023479	{"cell_table": "normal", "protocol": "WES"}
+Sc9fgs	CELL_ID_13	Dcw1m7	TCELL2015	cmessers	2015-09-04T13:53:38.128863	{"cell_table": "normal", "protocol": "WES"}
+Spx5to	CELL_ID_16	Dcw1m7	TCELL2015	cmessers	2015-09-04T13:53:38.234713	{"cell_table": "normal", "protocol": "WES"}
+Snklzj	CELL_ID_163	Dcw1m7	TCELL2015	cmessers	2015-09-04T13:53:38.341061	{"cell_table": "normal", "protocol": "WES"}
+Sqe2e8	CELL_ID_165	Dcw1m7	TCELL2015	cmessers	2015-09-04T13:53:44.694016	{"cell_table": "normal", "protocol": "WES"}
