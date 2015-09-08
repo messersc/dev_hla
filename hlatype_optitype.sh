@@ -19,7 +19,7 @@ run_optitype()
         --create-output-dir \
         --output-dir ../analysis/${sample}/hla_typing/optitype \
         --output-prefix ${sample} \
-        --log-dir ../analysis/${sample}/log \
+        --log-dir ../analysis/${sample}/hla_typing/optitype/log \
         --mapping-threads 28 \
         $(repeat_arg --reads       ../samples/${sample}/fastq/original/*_R1_*.fastq.gz) \
         $(repeat_arg --right-reads ../samples/${sample}/fastq/original/*_R2_*.fastq.gz)
