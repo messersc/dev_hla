@@ -1,17 +1,21 @@
 options(stringsAsFactors = FALSE)
+setwd("/vol/cs02/scratch/cmessers/projects/BIH/HLA")
 library(stringr)
 
-# # To generate the ref file, something like
-# ref = nar.02838.met.k.2014.File005[3:nrow(nar.02838.met.k.2014.File005), grep(pattern = ".*reference", nar.02838.met.k.2014.File005[2, ])]
-# ref = head(ref, -2) #watch out for last 2 lines!
-# rownames(ref) =  nar.02838.met.k.2014.File005[3:nrow(nar.02838.met.k.2014.File005), 1]
-# make.names(nar.02838.met.k.2014.File005[2, grep(pattern = ".*reference", nar.02838.met.k.2014.File005[2, ])], unique = T)
-# colnames(ref) = make.names(nar.02838.met.k.2014.File005[2, grep(pattern = ".*reference", nar.02838.met.k.2014.File005[2, ])], unique = T)
-# # was used. 
+build_ref_table <- function(){
+# To generate the ref table
+  ref <- read.csv("/vol/cs02/scratch/cmessers/projects/BIH/HLA/metadata/nar-02838-met-k-2014-File005.csv", header=FALSE)
+  ref = head(ref, -2) #remove last 2 lines! Rubbish in there.
+  rownames(ref) = make.names(ref[, 1], unique = T)
+  colnames(ref) = make.names(ref[2, ], unique = T)
+  ref = ref[3:nrow(ref), grep(pattern = ".*reference", ref[2, ])]
+  write.table(ref, file = "ref.csv")
+}
 
 # load all result files
 # samples should be ordered. 
 load_results <- function(d = getwd()){
+  build_ref_table()
   ref <<- read.table("ref.csv", header=TRUE, quote="\"")
   bwakit <<- read.table("bwakit", quote="\"", row.names=1)[1:6]
   hlassign <<- read.table("hlassign", quote="\"", row.names=1)
