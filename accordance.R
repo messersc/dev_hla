@@ -52,7 +52,8 @@ build_performance_table <- function(typer = c("optitype", "bwakit", "hlassign"),
   xref <<- ref[match(samples, rownames(ref)), 1:6]
   
   for (x in c("xref", typer)){
-    assign(x, apply(get(x), c(1,2), fit_allele_to_precision, pattern, ncolon)) #cellwise trimming of type to wanted precision
+    assign("y", apply(get(x), c(1,2), fit_allele_to_precision, pattern, ncolon)) #cellwise trimming of type to wanted precision
+    x <- y
   }
   
   # for manual inspection and comparisons
@@ -81,4 +82,7 @@ build_performance_table <- function(typer = c("optitype", "bwakit", "hlassign"),
 }
 
 load_results()
-acc = build_performance_table(prec='2d')
+acc = build_performance_table(precision='4d')
+accordance = acc[[1]]
+all_alleles = acc[[2]]
+
