@@ -1,0 +1,17 @@
+{
+    "contents" : "reshape_results <- function(results_table = acc[[2]]) {\n  ntyper = ncol(results_table)/6\n  \n  reshaped = matrix(rep(c(\"reference\", \"optitype\", \"bwakit\", \"hlassign\"), each=2), nrow = 1)\n  rnames = rownames(results_table)\n  \n  for (row in 1:nrow(results_table)){\n    \n    for (i in c(1,3,5)){ #HLA-A B C\n      col = sort(union(seq(i, by = 6, length.out = ntyper), seq(i+1, by = 6, length.out = ntyper)))\n      #print(paste(row,col))\n      reshaped = rbind(reshaped, results_table[row, col])\n    }\n  }\n  \n  colnames(reshaped) = reshaped[1,]\n  reshaped = tail(reshaped, -1)\n  rownames(reshaped) = rep(rnames, each=3)\n  return(reshaped)\n}\n\nget_consensus <- function(reshaped_table) {\n  for (i in c(3,5,7)){ #cols for typer's allele 1\n    reshaped_table = cbind(reshaped_table, paste(reshaped_table[, i], reshaped_table[, i+1]))\n  \n  } \n  \n  return(reshaped_table)\n}\n\n\nreshaped <- reshape_results()\nconsensus <- get_consensus(reshaped)",
+    "created" : 1442302257987.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3922085811",
+    "id" : "495AEBCD",
+    "lastKnownWriteTime" : 1442301944,
+    "path" : "/vol/cs02/scratch/cmessers/projects/BIH/HLA/dev/reshape_table.R",
+    "project_path" : "dev/reshape_table.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
