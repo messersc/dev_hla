@@ -1,3 +1,5 @@
 *~
 .venv/
 *.swp
+.Rproj.user
+.R*
