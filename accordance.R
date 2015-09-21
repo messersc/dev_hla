@@ -1,5 +1,6 @@
 options(stringsAsFactors = FALSE)
-setwd("/vol/cs02/scratch/cmessers/projects/BIH/HLA")
+#setwd("/vol/cs02/scratch/cmessers/projects/BIH/HLA")
+setwd("~/hla/dev")
 library(stringr)
 
 build_ref_table <- function(){
@@ -15,7 +16,7 @@ build_ref_table <- function(){
 # load all result files
 # samples should be ordered. 
 load_results <- function(d = getwd()){
-  build_ref_table()
+  #build_ref_table()
   ref <<- read.table("ref.csv", header=TRUE, quote="\"")
   bwakit <<- read.table("bwakit", quote="\"", row.names=1)[1:6]
   hlassign <<- read.table("hlassign", quote="\"", row.names=1)
@@ -41,7 +42,7 @@ compare_allele_pairs <- function(x,y){
 
 build_performance_table <- function(typer = c("optitype", "bwakit", "hlassign"), precision="4d"){
   
-  if (precision == "2d"){ pattern = "(^[ABC]\\*[0-9]{2}).*" ; ncolon = 0}
+  if      (precision == "2d"){ pattern = "(^[ABC]\\*[0-9]{2}).*" ; ncolon = 0}
   else if (precision == "4d"){ pattern = "(^[ABC]\\*[0-9]{2}:[0-9]{2,3}).*" ; ncolon = 1}
   else if (precision == "8d"){ pattern = "(.*).*" ; ncolon = 3}
   else return('STOP')
@@ -52,14 +53,14 @@ build_performance_table <- function(typer = c("optitype", "bwakit", "hlassign"),
   xref <<- ref[match(samples, rownames(ref)), 1:6]
   
   for (x in c("xref", typer)){
-    assign("y", apply(get(x), c(1,2), fit_allele_to_precision, pattern, ncolon)) #cellwise trimming of type to wanted precision
-    x <- y
+    assign(x, apply(get(x), c(1,2), fit_allele_to_precision, pattern, ncolon)) #cellwise trimming of type to wanted precision
+    write.table(paste(precision,x,sep="."), x = get(x))
   }
   
   # for manual inspection and comparisons
   all_alleles = xref
   for (x in typer){
-    all_alleles = cbind(all_alleles, get(typer))
+    all_alleles = cbind(all_alleles, get(x))
   }
   
   #build matrix
@@ -83,6 +84,5 @@ build_performance_table <- function(typer = c("optitype", "bwakit", "hlassign"),
 
 load_results()
 acc = build_performance_table(precision='4d')
-accordance = acc[[1]]
+accordance =  acc[[1]]
 all_alleles = acc[[2]]
-
