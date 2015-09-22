@@ -1,0 +1,37 @@
+---
+title: "HLA typing: whole exomes"
+author: "Clemens Messerschmidt"
+date: "21.09.2015"
+output: pdf_document
+---
+
+For 12 panels, which were used in the HLAssign paper and have known HLA types, we performed HLA typing with 
+the tools optitype, bwakit, hlassign.
+
+```{r, echo=F}
+source('~/dev/hla/accordance.R')
+```
+
+The following table shows the reference types and the optitype predictions with 4-digit resolution:
+```{r}
+print(all_alleles)
+```
+
+For all alleles that possess a precise enough reference, prediction and reference were compared. The number of possible hits is the number of
+alleles per sample that is typed with a precision >= 4-digit, e.g. HLA-A*02:01
+```{r}
+print(accordance)
+
+colSums(accordance)
+(colSums(accordance)/ colSums(accordance)[4])*100
+```
+
+3 samples can be identified with having wrong reference types assigned to them. To compute performance, we remove them and redo the calculations.
+
+```{r}
+accordance = accordance[-c(5,19,12),]
+colSums(accordance)
+(colSums(accordance)/ colSums(accordance)[4])*100
+```
+
+Clearly, optitype and hlassign show better performance than bwakit for our sample set of 20 panels (HLA enriched).

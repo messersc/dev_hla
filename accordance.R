@@ -1,6 +1,4 @@
 options(stringsAsFactors = FALSE)
-#setwd("/vol/cs02/scratch/cmessers/projects/BIH/HLA")
-setwd("~/hla/dev")
 library(stringr)
 
 build_ref_table <- function(){
@@ -10,17 +8,21 @@ build_ref_table <- function(){
   rownames(ref) = make.names(ref[, 1], unique = T)
   colnames(ref) = make.names(ref[2, ], unique = T)
   ref = ref[3:nrow(ref), grep(pattern = ".*reference", ref[2, ])]
-  write.table(ref, file = "ref.csv")
+  write.table(ref, file = "ref.csv",quote = F, col.names = F)
 }
 
 # load all result files
 # samples should be ordered. 
 load_results <- function(d = getwd()){
   #build_ref_table()
-  ref <<- read.table("ref.csv", header=TRUE, quote="\"")
+  ref <<- read.table("ref.csv", quote="\"", row.names=1)
   bwakit <<- read.table("bwakit", quote="\"", row.names=1)[1:6]
   hlassign <<- read.table("hlassign", quote="\"", row.names=1)
   optitype <<- read.table("optitype", quote="\"", row.names=1)
+#   for (x in typer){
+#     assign(x, read.table(typer, quote="\"", row.names=1)[1:6], envir = .GlobalEnv)
+# rownames(optitype) = gsub(pattern = ".{6}-(SRR[0-9]{6})_result.tsv", replacement = "\\1", rownames(optitype))
+#   }
 }
 
 fit_allele_to_precision <- function(str, regex, ncolon){
@@ -40,7 +42,7 @@ compare_allele_pairs <- function(x,y){
   return(s)
 }
 
-build_performance_table <- function(typer = c("optitype", "bwakit", "hlassign"), precision="4d"){
+build_performance_table <- function(typer, precision){
   
   if      (precision == "2d"){ pattern = "(^[ABC]\\*[0-9]{2}).*" ; ncolon = 0}
   else if (precision == "4d"){ pattern = "(^[ABC]\\*[0-9]{2}:[0-9]{2,3}).*" ; ncolon = 1}
@@ -48,13 +50,13 @@ build_performance_table <- function(typer = c("optitype", "bwakit", "hlassign"),
   else return('STOP')
   
   #get consensus/sample names/IDs
-  samples=row.names(bwakit)
+  samples=rownames(optitype)
   # sort and filter reference according to results
   xref <<- ref[match(samples, rownames(ref)), 1:6]
   
   for (x in c("xref", typer)){
     assign(x, apply(get(x), c(1,2), fit_allele_to_precision, pattern, ncolon)) #cellwise trimming of type to wanted precision
-    write.table(paste(precision,x,sep="."), x = get(x))
+    write.table(paste(precision,x,sep="."), x = get(x), quote = F, col.names = F)
   }
   
   # for manual inspection and comparisons
@@ -83,6 +85,9 @@ build_performance_table <- function(typer = c("optitype", "bwakit", "hlassign"),
 }
 
 load_results()
-acc = build_performance_table(precision='4d')
+
+#typer = c("optitype", "bwakit", "hlassign")
+typer = c("optitype", "hlassign")
+acc = build_performance_table(typer, precision='4d')
 accordance =  acc[[1]]
 all_alleles = acc[[2]]
