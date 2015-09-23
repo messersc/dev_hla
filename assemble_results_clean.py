@@ -28,11 +28,13 @@ def readin(typer, dir = sys.argv[1]):
                 name = (os.path.join(name))
                 f = open(os.path.join(root,name))
                 
-                #print(name)
-                newnameregex = re.compile(r'.*(CELL_ID_[0-9]{1,3}).*')
-                name = newnameregex.sub(r'\1', name)
-                #print(name)
-                               
+                #newnameregex = re.compile(r'.*(CELL_ID_[0-9]{1,3}).*')
+                #name = newnameregex.sub(r'\1', name)
+                
+                newnameregex = re.compile(r'.*-(.{9}$)')
+                name = newnameregex.sub(r'\1', root)
+                print(name)
+                
                 if typer == "optitype":
                     try:
                         reader = csv.reader(f, delimiter='\t')
