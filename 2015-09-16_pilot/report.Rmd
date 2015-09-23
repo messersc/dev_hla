@@ -1,8 +1,8 @@
 ---
-title: "HLA typing: whole exomes"
+title: 'HLA typing: whole exomes'
 author: "Clemens Messerschmidt"
 date: "21.09.2015"
-output: pdf_document
+output: html_document
 ---
 
 For 11 exomes, which were used in the ATHLATES paper and have known HLA types, we performed HLA typing with 
@@ -21,9 +21,13 @@ For all alleles that possess a precise enough reference, prediction and referenc
 alleles per sample that is typed with a precision >= 4-digit, e.g. HLA-A*02:01
 ```{r}
 print(accordance)
-
 colSums(accordance)
-colSums(accordance)/ colSums(accordance)[2]
+colSums(accordance)/ colSums(accordance)[ncol(accordance)]
 ```
 
 On our small sample set of 11 wes, optitype correctly predicts 66/66 for 2-digit and 41/41 for 4-digit resolution, i.e. 100 % accordance with the reference.
+HLAssign show a clearly weaker performance with ~80 % recall.
+
+```{r}
+print(rbind(accordance, colSums(accordance), (colSums(accordance)/ colSums(accordance)[ncol(accordance)])*100))
+```
