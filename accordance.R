@@ -16,7 +16,7 @@ build_ref_table <- function(){
 load_results <- function(d = getwd()){
   #build_ref_table()
   ref <<- read.table("ref.csv", quote="\"", row.names=1)
-#   bwakit <<- read.table("bwakit", quote="\"", row.names=1)[1:6]
+  bwakit <<- read.table("bwakit", quote="\"", row.names=1)[1:6]
   hlassign <<- read.table("hlassign", quote="\"", row.names=1)
   optitype <<- read.table("optitype", quote="\"", row.names=1)
 }
@@ -69,7 +69,7 @@ build_performance_table <- function(typer, precision){
   #build matrix
   acc = matrix(0, nrow=length(samples), ncol = length(typer)+1)
   rownames(acc) = samples
-  colnames(acc) = c(typer, "possible hits")
+  colnames(acc) = c(typer, "alleles typed in ref")
   acc[, ncol(acc)] = apply(xref, 1, function(x) sum(x != "nottyped"))
   
   typercount = 0
@@ -86,9 +86,9 @@ build_performance_table <- function(typer, precision){
 }
 
 
-#typer = c("optitype", "bwakit", "hlassign")
-typer <<- c("optitype", "hlassign")
-precision='4d'
+typer = c("optitype", "bwakit", "hlassign")
+#typer <<- c("optitype", "hlassign")
+#precision='4d'
 
 acc = build_performance_table(typer, precision)
 accordance =  acc[[1]]
