@@ -1,11 +1,11 @@
 ---
-title: "HLA typing: whole exomes"
+title: 'HLA typing: HLA panels'
 author: "Clemens Messerschmidt"
 date: "21.09.2015"
-output: pdf_document
+output: html_document
 ---
 
-For 12 panels, which were used in the HLAssign paper and have known HLA types, we performed HLA typing with 
+For 20 panels, which were used in the HLAssign paper and have known HLA types, we performed HLA typing with 
 the tools optitype, bwakit, hlassign.
 
 ```{r, echo=F}
@@ -35,3 +35,10 @@ colSums(accordance)
 ```
 
 Clearly, optitype and hlassign show better performance than bwakit for our sample set of 20 panels (HLA enriched).
+
+
+```{r}
+print(accordance)
+print(colSums(accordance))
+print((colSums(accordance)/ colSums(accordance)[ncol(accordance)])*100)
+```

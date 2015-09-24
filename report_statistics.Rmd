@@ -1,0 +1,79 @@
+---
+title: "Untitled"
+author: "Clemens Messerschmidt"
+date: "23.09.2015"
+output: html_document
+---
+
+```{r, echo=F, kable}
+library(knitr)
+setwd(dir = "~/dev/hla//2015-09-07_pilot")
+
+precision="2d"
+source('~/dev/hla/accordance.R')
+acc_panel_2d = accordance[-c(5,19,12),]
+
+precision="4d"
+source('~/dev/hla/accordance.R')
+acc_panel_4d = accordance[-c(5,19,12),]
+
+############################################################
+setwd(dir = "~/dev/hla//2015-09-16_pilot")
+
+precision="2d"
+source('~/dev/hla/accordance.R')
+acc_wes_2d = accordance
+
+precision="4d"
+source('~/dev/hla/accordance.R')
+acc_wes_4d = accordance
+
+######################################################
+```
+
+Just as an example output
+```{r}
+kable(optitype)
+```
+
+```{r}
+
+kable(acc_panel_2d)
+kable(acc_panel_4d)
+kable(acc_wes_2d)
+kable(acc_wes_4d)
+
+```
+
+The following table shows the number of samples, the number of typed alleles, the recall and false discovery rate for the 2 data types and 2 resolutions.
+
+```{r}
+tt = c("panel", "panel", "WES", "WES")
+tt = cbind(tt, rep(c("2d","4d"), times=2))
+tt = cbind(tt, list(nrow(acc_panel_2d),nrow(acc_panel_2d),nrow(acc_wes_2d),nrow(acc_wes_2d)))
+
+results = rbind(colSums(acc_panel_2d),colSums(acc_panel_4d),colSums(acc_wes_2d),colSums(acc_wes_4d))
+
+tt= cbind(tt, results)
+kable(tt)
+
+```
+
+```{r}
+tt = c("panel", "panel", "WES", "WES")
+tt = cbind(tt, rep(c("2d","4d"), times=2))
+
+results = rbind(colSums(acc_panel_2d)/colSums(acc_panel_2d)[ncol(acc_panel_2d)],
+                colSums(acc_panel_4d)/colSums(acc_panel_4d)[ncol(acc_panel_4d)],
+                colSums(acc_wes_2d)/colSums(acc_wes_2d)[ncol(acc_wes_2d)],
+                colSums(acc_wes_4d)/colSums(acc_wes_4d)[ncol(acc_wes_4d)])
+
+fdr = 1-results
+
+kable(cbind(tt, results), digits = c(0,0,2,2,2,2))
+
+kable(cbind(tt, fdr), digits = c(0,0,2,2,2,2))
+```
+
+
+
