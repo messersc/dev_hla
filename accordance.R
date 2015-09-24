@@ -17,7 +17,7 @@ load_results <- function(d = getwd()){
   #build_ref_table()
   ref <<- read.table("ref.csv", quote="\"", row.names=1)
   bwakit <<- read.table("bwakit", quote="\"", row.names=1)[1:6]
-  hlassign <<- read.table("hlassign", quote="\"", row.names=1)
+  #hlassign <<- read.table("hlassign", quote="\"", row.names=1)
   optitype <<- read.table("optitype", quote="\"", row.names=1)
 }
 
@@ -86,8 +86,9 @@ build_performance_table <- function(typer, precision){
 }
 
 
-typer = c("optitype", "bwakit", "hlassign")
+#typer = c("optitype", "bwakit", "hlassign")
 #typer <<- c("optitype", "hlassign")
+typer <<- c("optitype", "bwakit")
 #precision='4d'
 
 acc = build_performance_table(typer, precision)

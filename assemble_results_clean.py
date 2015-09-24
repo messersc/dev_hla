@@ -31,7 +31,7 @@ def readin(typer, dir = sys.argv[1]):
                 #newnameregex = re.compile(r'.*(CELL_ID_[0-9]{1,3}).*')
                 #name = newnameregex.sub(r'\1', name)
                 
-                newnameregex = re.compile(r'.*-(.{9}$)')
+                newnameregex = re.compile(r'.*([ES]RR{6}$)')
                 name = newnameregex.sub(r'\1', root)
                 print(name)
                 
