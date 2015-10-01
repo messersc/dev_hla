@@ -16,9 +16,9 @@ build_ref_table <- function(){
 load_results <- function(d = getwd()){
   #build_ref_table()
   ref <<- read.table("ref.csv", quote="\"", row.names=1)
-  bwakit <<- read.table("bwakit", quote="\"", row.names=1)[1:6]
-  #hlassign <<- read.table("hlassign", quote="\"", row.names=1)
-  optitype <<- read.table("optitype", quote="\"", row.names=1)
+  if ("bwakit"   %in% typer) bwakit   <<- read.table("bwakit",   quote="\"", row.names=1)[1:6]
+  if ("hlassign" %in% typer) hlassign <<- read.table("hlassign", quote="\"", row.names=1)
+  if ("optitype" %in% typer) optitype <<- read.table("optitype", quote="\"", row.names=1)
 }
 
 fit_allele_to_precision <- function(str, regex, ncolon){
@@ -51,10 +51,10 @@ build_performance_table <- function(typer, precision){
   #get consensus/sample names/IDs
   samples=rownames(optitype)
   # sort and filter reference according to results
-  xref <- ref[match(samples, rownames(ref)), 1:6]
-  hlassign <- hlassign[match(samples, rownames(hlassign)), 1:6]
-  
-  
+                               xref <<- ref[match(samples, rownames(ref)),1:6]
+  if ("bwakit"   %in% typer) bwakit <<- bwakit[match(samples, rownames(bwakit)), 1:6]
+  if ("optitype" %in% typer) optitype <<- optitype[match(samples, rownames(optitype)), 1:6]
+    
   for (x in c("xref", typer)){
     assign(x, apply(get(x), c(1,2), fit_allele_to_precision, pattern, ncolon)) #cellwise trimming of type to wanted precision
     write.table(paste(precision,x,sep="."), x = get(x), quote = F, col.names = F)
@@ -72,25 +72,50 @@ build_performance_table <- function(typer, precision){
   colnames(acc) = c(typer, "alleles typed in ref")
   acc[, ncol(acc)] = apply(xref, 1, function(x) sum(x != "nottyped"))
   
+  nnt = matrix(0, nrow=length(samples), ncol = length(typer))
+  colnames(nnt) = typer
+                  
   typercount = 0
   for (x in typer){
     hits = rep(0, length(samples))
+    nopred = rep(0, length(samples))
+    
+    #for (a in 1){
     for (a in c(1,3,5)){ # diploid organisms are fun...
       pred = get(x)
-      hits = hits + sapply(1:nrow(xref), function(i) compare_allele_pairs(pred[i,a:(a+1)], xref[i,a:(a+1)]))
-    }
+      hits   = hits   + sapply(1:nrow(xref), function(i) compare_allele_pairs(pred[i,a:(a+1)], xref[i,a:(a+1)]))
+      nopred = nopred + sapply(1:nrow(pred), function(i) sum(pred[i,a:(a+1)] == "nottyped")) #count the number of untyped alleles to compute false positives later
+    } 
     typercount = typercount + 1
     acc[ ,typercount] = hits
+    nnt[ ,typercount] = nopred
   }
-  return(list("accordance" = acc, "all_alleles" = all_alleles))
+  return(list("accordance" = acc, "nnopred" = nnt, "all_alleles" = all_alleles))
+}
+
+compute_performance <- function(hittable, nopred){
+  p = matrix(rep(hittable[,length(typer)+1], length(typer)), ncol=length(typer))
+  
+  fp = p - hittable[,1:length(typer)] - nopred
+  
+  fdr = colSums(fp)/(colSums(fp) + colSums(hittable[,1:length(typer)]))
+  
+  tpr = colSums(hittable[,1:length(typer)]) / colSums(p)
+  
+  return(cbind(tpr, fdr))
 }
 
 
 #typer = c("optitype", "bwakit", "hlassign")
 #typer <<- c("optitype", "hlassign")
 typer <<- c("optitype", "bwakit")
-#precision='4d'
+#typer <<- c("bwakit")
+precision='4d'
 
 acc = build_performance_table(typer, precision)
 accordance =  acc[[1]]
-all_alleles = acc[[2]]
+nopred     =  acc[[2]]
+#all_alleles = acc[[3]]
+
+performance = compute_performance(accordance, nopred)
+View(performance)
