@@ -1,6 +1,3 @@
-options(stringsAsFactors = FALSE)
-library(stringr)
-
 build_ref_table <- function(){
 # To generate the ref table
   ref <- read.csv("/vol/cs02/scratch/cmessers/projects/BIH/HLA/metadata/nar-02838-met-k-2014-File005.csv", header=FALSE)
@@ -12,13 +9,28 @@ build_ref_table <- function(){
 }
 
 # load all result files
-# samples should be ordered. 
 load_results <- function(d = getwd()){
   #build_ref_table()
-  ref <<- read.table("ref.csv", quote="\"", row.names=1)
-  if ("bwakit"   %in% typer) bwakit   <<- read.table("bwakit",   quote="\"", row.names=1)[1:6]
-  if ("hlassign" %in% typer) hlassign <<- read.table("hlassign", quote="\"", row.names=1)
-  if ("optitype" %in% typer) optitype <<- read.table("optitype", quote="\"", row.names=1)
+  ref <<- read.table("ref.csv", quote="\"", row.names=1)[-c(3,7,13),]
+  for (i in typer){
+    assign(i, read.table(i, quote="\"", row.names=1)[1:6], envir = .GlobalEnv)
+  }
+}
+
+find_consensus <- function(ref, typer){
+  samples = rownames(ref)
+    
+  for (i in typer){
+    samples = intersect(samples, rownames(get(i)))    
+  }
+  samples <- sort(samples)
+  samples <<- samples
+  
+  # sort and filter according to results
+  xref <<- ref[match(samples, rownames(ref)),1:6]
+  for (i in typer){
+    assign(i, get(i)[match(samples, rownames(get(i))), 1:6], envir = .GlobalEnv)
+  }
 }
 
 fit_allele_to_precision <- function(str, regex, ncolon){
@@ -45,16 +57,8 @@ build_performance_table <- function(typer, precision){
   else return('STOP')
     
   load_results()
-  
-  rownames(optitype) = gsub(pattern = ".{6}-(SRR[0-9]{6})_result.tsv", replacement = "\\1", rownames(optitype))
-    
-  #get consensus/sample names/IDs
-  samples=rownames(optitype)
-  # sort and filter reference according to results
-                               xref <<- ref[match(samples, rownames(ref)),1:6]
-  if ("bwakit"   %in% typer) bwakit <<- bwakit[match(samples, rownames(bwakit)), 1:6]
-  if ("optitype" %in% typer) optitype <<- optitype[match(samples, rownames(optitype)), 1:6]
-    
+  find_consensus(ref, typer)
+
   for (x in c("xref", typer)){
     assign(x, apply(get(x), c(1,2), fit_allele_to_precision, pattern, ncolon)) #cellwise trimming of type to wanted precision
     write.table(paste(precision,x,sep="."), x = get(x), quote = F, col.names = F)
@@ -73,6 +77,7 @@ build_performance_table <- function(typer, precision){
   acc[, ncol(acc)] = apply(xref, 1, function(x) sum(x != "nottyped"))
   
   nnt = matrix(0, nrow=length(samples), ncol = length(typer))
+  rownames(nnt) = samples
   colnames(nnt) = typer
                   
   typercount = 0
@@ -105,12 +110,14 @@ compute_performance <- function(hittable, nopred){
   return(cbind(tpr, fdr))
 }
 
+main <- function(precision='4d'){
+options(stringsAsFactors = FALSE)
+library(stringr)
 
-#typer = c("optitype", "bwakit", "hlassign")
-#typer <<- c("optitype", "hlassign")
-typer <<- c("optitype", "bwakit")
-#typer <<- c("bwakit")
-precision='4d'
+typer = c()
+for (x in c("optitype", "bwakit", "hlassign", "phlat")){
+  if (file.exists(x) &&  file.info(x)$size != 0 ) typer = append(typer, x)
+}
 
 acc = build_performance_table(typer, precision)
 accordance =  acc[[1]]
@@ -119,3 +126,6 @@ nopred     =  acc[[2]]
 
 performance = compute_performance(accordance, nopred)
 View(performance)
+}
+
+main()
