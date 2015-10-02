@@ -28,10 +28,10 @@ def readin(typer, dir = sys.argv[1]):
                 name = (os.path.join(name))
                 f = open(os.path.join(root,name))
                 
-                #newnameregex = re.compile(r'.*(CELL_ID_[0-9]{1,3}).*')
-                #name = newnameregex.sub(r'\1', name)
+                # For the exome datasets:
+                #newnameregex = re.compile(r'.*([ES]RR[0-9]{6}$)')
+                newnameregex  = re.compile(r'.*[bwakit|optitype]\..{6}-([BIH|C].*)\/out')
                 
-                newnameregex = re.compile(r'.*([ES]RR{6}$)')
                 name = newnameregex.sub(r'\1', root)
                 print(name)
                 
@@ -50,13 +50,28 @@ def readin(typer, dir = sys.argv[1]):
                     l = []
                     try:
                         reader = csv.reader(f, delimiter='\t')
+                        
+                        rownum = 0
+                        genes = ["A","B","C"]
                         for row in reader:
                             for cell in row:
-                                if cell.startswith("HLA-"):
-                                    l.append(cell.replace("HLA-", ""))
+                                if re.match("HLA-[ABC]", cell):
+                                    if cell[4] == genes[rownum]: #First line must be A, second line B ,...
+                                        l.append(re.sub("HLA-", "", cell))
+                                    else:
+                                        l.append("*".join((genes[rownum], "none")))
+                            rownum = rownum + 1
                     finally:
                         f.close()
-                        l.sort()
+                    
+                    # Fill list with none predictions in case the file is empty or does not contain enough lines!
+                    if len(l) == 4:
+                        l.extend(["C*none","C*none"])
+                    elif len(l) == 2:
+                        l.extend(["B*none","B*none", "C*none","C*none"])
+                    elif len(l) == 0:
+                        l.extend(["A*none","A*none", "B*none","B*none", "C*none","C*none"])
+
 
                     d.update({name:l})
                 
@@ -65,7 +80,7 @@ def readin(typer, dir = sys.argv[1]):
                     try:
                         reader = csv.reader(f, delimiter=' ')
                         for row in reader:
-                            colnum = 0  
+                            colnum = 0
                             for cell in row:
                                 if colnum in [2,3]:
                                     l.append(cell)
@@ -80,7 +95,7 @@ def readin(typer, dir = sys.argv[1]):
     
     outfile = open( typer, 'w' )
     
-    for key, value in sorted( d.items() ):
+    for key, value in sorted( d.items() ): #sort keys, i.e. the sample ID, so that it is the same in every result file
         outfile.write( str(key) + '\t' + str(" ".join(value)) + '\n' )
     outfile.close()
     
