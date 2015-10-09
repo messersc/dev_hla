@@ -30,10 +30,11 @@ def readin(typer, dir = sys.argv[1]):
                 
                 # For the exome datasets:
                 newnameregex = re.compile(r'.*([ES]RR[0-9]{6})/\out$')
-                #For the BIH datasets
+                # For the BIH datasets
                 #newnameregex  = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-([BIH|C].*)\/out')
-                
-                name = newnameregex.sub(r'\1', root)
+                #name = newnameregex.sub(r'\1', root)
+                # For the Panel datasets
+                newnameregex  = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-(.*[0-9])\/out$')
                 print(typer + ": " + name)
                 
                 if typer == "optitype":
