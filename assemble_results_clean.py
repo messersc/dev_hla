@@ -6,20 +6,20 @@ import csv
 import sys
 
 def main():
-    for typer in ['optitype','hlassign','bwakit']:
+    for typer in ['optitype','hlassign','bwakit', 'phlat']:
         readin( typer = typer)
 
-
 def readin(typer, dir = sys.argv[1]):
-    
-    if typer == "optitype": 
-        regexp = re.compile(r'.*result.tsv$')
-    if typer == "bwakit": 
-        regexp = re.compile(r'.*hla.top$')
-    if typer == "hlassign": 
-        regexp = re.compile(r'.*calls.tsv$')
 
-    
+    if typer == "optitype":
+        regexp = re.compile(r'.*result.tsv$')
+    if typer == "bwakit":
+        regexp = re.compile(r'.*hla.top$')
+    if typer == "hlassign":
+        regexp = re.compile(r'.*calls.tsv$')
+    if typer == "phlat":
+        regexp = re.compile(r'.*sum$')
+
     d = {}
 
     for root, dirs, files in os.walk(dir):
@@ -29,11 +29,13 @@ def readin(typer, dir = sys.argv[1]):
                 f = open(os.path.join(root,name))
                 
                 # For the exome datasets:
-                #newnameregex = re.compile(r'.*([ES]RR[0-9]{6}$)')
-                newnameregex  = re.compile(r'.*[bwakit|optitype]\..{6}-([BIH|C].*)\/out')
-                
-                name = newnameregex.sub(r'\1', root)
-                print(name)
+                newnameregex = re.compile(r'.*([ES]RR[0-9]{6})/\out$')
+                # For the BIH datasets
+                #newnameregex  = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-([BIH|C].*)\/out')
+                #name = newnameregex.sub(r'\1', root)
+                # For the Panel datasets
+                newnameregex  = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-(.*[0-9])\/out$')
+                print(typer + ": " + name)
                 
                 if typer == "optitype":
                     try:
@@ -42,9 +44,18 @@ def readin(typer, dir = sys.argv[1]):
                             if row[0]=="0":
                                 val = row[1:7]
                                 val.sort()
+                                c = {}
+                                c.update({name:val})
                                 d.update({name:val})
                     finally:
                         f.close()
+                
+                    fsingle = re.sub("work", "output", root)
+                    fsingle = "{}/calls.txt".format(fsingle)
+                    os.makedirs(os.path.dirname(fsingle), exist_ok=True)
+                    with open(fsingle, 'w') as f:
+                        for key, value in sorted( c.items() ):
+                            f.write(str("\n".join(value)) + '\n' )
                 
                 if typer == "bwakit":
                     l = []
@@ -72,9 +83,8 @@ def readin(typer, dir = sys.argv[1]):
                     elif len(l) == 0:
                         l.extend(["A*none","A*none", "B*none","B*none", "C*none","C*none"])
 
-
                     d.update({name:l})
-                
+
                 if typer == "hlassign":
                     l = []
                     try:
@@ -91,9 +101,36 @@ def readin(typer, dir = sys.argv[1]):
 
                     d.update({name:l})
 
+                if typer == "phlat":
+                    l = []
+                    try:
+                        reader = csv.reader(f, delimiter='\t')
+                        
+                        rownum = -1
+                        genes = ["A","B","C"]
+                        for row in reader:
+                            for cell in row:
+                                if re.match("[ABC]\*", cell):
+                                    if cell[0] == genes[rownum]:
+                                        l.append(cell)
+                                    else:
+                                        l.append("*".join((genes[rownum], "none")))
+                            rownum = rownum + 1
+                    finally:
+                        f.close()
+                    
+                    # Fill list with none predictions in case the file is empty or does not contain enough lines!
+                    if len(l) == 4:
+                        l.extend(["C*none","C*none"])
+                    elif len(l) == 2:
+                        l.extend(["B*none","B*none", "C*none","C*none"])
+                    elif len(l) == 0:
+                        l.extend(["A*none","A*none", "B*none","B*none", "C*none","C*none"])
+
+                    d.update({name:l})
     
     
-    outfile = open( typer, 'w' )
+    outfile = open("output/{}".format(typer), 'w' )
     
     for key, value in sorted( d.items() ): #sort keys, i.e. the sample ID, so that it is the same in every result file
         outfile.write( str(key) + '\t' + str(" ".join(value)) + '\n' )
