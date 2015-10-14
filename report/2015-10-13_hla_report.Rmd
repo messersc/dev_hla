@@ -1,0 +1,183 @@
+---
+title: "Establishing HLA Typing at CUBI and Benchmarking Tools"
+author: 
+- "Clemens Messerschmidt"
+- "Manuel Holtgrewe"
+date: "13.10.2015"
+output:
+  pdf_document:
+    includes:
+      in_header: header.tex
+bibliography: hla.bib
+---
+
+# Abstract
+The human leucocyte antigen (HLA) gene cluster plays an important role in adaptive immunity.
+HLA class I genes encode for proteins on every nucleated cell that present peptides from inside the cell.
+
+# Introduction
+
+In clinical use, HLA typing often requires the use of special techniques for the enrichment of the HLA gene cluster.
+As this requires a commitment of resources and time, it would be desirable to gather this information from already
+existing information, e.g. whole exome sequences (WES).
+
+# Tools
+
+- @szolek2014 presented OptiType.
+- @bai2014 PHLAT
+- Li (unpublished) BWAkit
+- @wittig2015 HLAssign
+
+input     | hlassign | optitype | bwakit
+----------|----------|----------|--------
+HLA panel | \cmark   | \cmark   | 
+WES       | ?        | \cmark   | ?
+WGS       |          | \cmark (yara) | \cmark
+
+Table: Tool applicability based on type of NGS data
+
+# Datasets
+
+To benchmark the presented tools, multiple dataset were gathered, covering all 
+3 types once. For the benchmark, we rely on NGS datasets with known HLA types, 
+i.e. the individuals were additionally HLA typed using conventional methods like
+Sanger sequencing.
+
+### HLA Panel
+
+@wittig2015 presented HLAssign, a tool to predict HLA types together with a 
+custom panel to enrich for the HLA gene cluster. The supplementary material for 
+the publication includes sequencing datasets from different sequencing system, 
+i.e. Hiseq, Miseq.For our benchmark, we analyzed 311 Hiseq panel datasets, which
+were sequenced paired-end, 100 bp.
+
+_CAUTION_: The datasets only contain reads that have a perfect match seed of 30 
+against the database. Even though the reads are paired, the fastq files are _not_.
+This can introduce problems with aligners like Bowtie2, which is used by PHLAT. 
+In this case, reads were treated as single-end. HLAssign, OptiType and bwakit 
+identify reads pairs by their name.
+
+_SAMPLE SWAPS_ In a pilot study we were able to discover sample swaps in the data,
+i.e. the FASTQ files were mixed up for ~ 10 % of all samples. This leads to a 
+decrease in performace, as correctly predicted HLA types will be classified as 
+false as they do not match the reference.
+
+### WES
+
+#### Sample set 1: 11 datasets.
+
+The exome-seq datasets are from the 1000 Genomes Project 
+(ftp-trace.ncbi.nih.gov/1000genomes/ftp/data/) and were used
+by @liu2013 (Supplementary table 2 http://nar.oxfordjournals.org/content/suppl/2013/05/11/gkt481.DC1/nar-00605-met-k-2013-File004_update.pdf).
+Samples were prepared using Agilent SureSelect V2 and provide 96-98 % 
+exome coverage (>= 10X), run on Illumina Genome Analyzer IIx.
+
+#### Sample set 2: 182 datasets.
+
+First used by @major2013 and later by @szolek2014, this dataset contains 182
+exomes, also from the 1000 Genomes Project.
+
+From @major2013:
+
+> There are 270 Coriell IDs in the HapMap database, but at the end of QC check 
+> there were only 31 Coriell IDs (41 samples) for whole-genome experiments and 
+> 131 Coriell IDs (182 samples) for whole-exome experiments left – many Coriell 
+> cell lines were sequenced more than once. Figure 1 explains the details of 
+> this filtering process.
+
+### WGS
+
+20 samples of low-coverage WGS data (~ 30X) of the HapMap Project, also 
+used by @warren2012, were used for benchmarking on WGS. This data are
+2 x 102 bp reads, sequenced on Illumina HiSeq 2000.
+
+# Benchmarks
+
+Performance was evaluated using measures from classification theory with the
+problem treated as multi-label, multi-class. Each item, i.e. a sample or 
+patient can be assigned with labels signalling one HLA allele each by each 
+method. Duplicates are allowed for homozygous predictions.
+Lables are than compared to the reference HLA type.
+
+$TP_i$ is number of alleles classified as $type_i$ in reference and prediction
+
+$FP_i$ is number of alleles classified as $type_i$ in the prediction but not in the reference
+
+$FN_i$ is number of alleles classified as $type_i$ in the reference but not in the prediction
+
+The definitions for recall ($\rho$), precision ($\pi$) and F-measure are taken from @ozgur2005:
+
+$\rho_i = \frac{TP_i}{TP_i+FN_i}$
+
+$\pi_i = \frac{TP_i}{TP_i+FP_i}$
+
+The F-measure is a measure for a test's accuracy. It considers both precision 
+and recalls, traditionally their harmonic mean (F1-measure) and will take values
+between 0 and 1. 
+The overall F-measure over all categories (HLA types) can be computed in two fashions.
+Here, we opt for the micro-averaged F-measure, which gives equal weight to each
+sample. It tends to be dominated by the classifiers (i.e. HLA typing method) 
+performance on common categories (e.g. A*02:01) rather than giving equal
+weight to categories. The latter would mean that the performance on rare
+HLA types would be equally important as on frequent ones.
+
+The micro-averaged F-Measure for $N$ categories is computed as follows:
+
+$\rho = \frac{TP}{TP+FN} = \frac{\sum_{i}^N TP_i}{\sum_{i}^N TP_i+FN_i}$
+
+$\pi =  \frac{TP}{TP+FP} = \frac{\sum_{i}^N TP_i}{\sum_{i}^N TP_i+FP_i}$
+
+$F_1 = \frac{2 \rho \pi}{\rho + \pi}$
+
+# Performance on Public Datasets
+
+The following section will list the performance results for the presented
+measures on each of the datasets. If a method is missing from in the table
+no results were generated as of the writing of this report. If necessary,
+specifics for the results of a given method on a dataset will be reported, if
+necessary for the correct interpretation of performance.
+
+# HLA Panel
+
+```{r, echo=FALSE}
+library(knitr)
+setwd("~/dev/hla/2015-10-01")
+source("~/dev/hla/accordance.R")
+
+kable(performance, digits = 2)
+```
+
+
+_REMARK_: For OptiType, only 306 out of 311 panels were typed because of
+missing results (unsolved memory issues).
+
+# WES: Sample set 1 (11 datasets)
+```{r, echo=FALSE}
+library(knitr)
+setwd("~/dev/hla/2015-09-16")
+source("~/dev/hla/accordance.R")
+
+kable(performance, digits = 2)
+```
+
+# WES: Sample set 2 (182 datasets)
+```{r, echo=FALSE}
+library(knitr)
+setwd("~/dev/hla/2015-09-22")
+source("~/dev/hla/accordance.R")
+
+kable(performance, digits = 2)
+```
+
+# WGS (20 datasets)
+```{r, echo=FALSE}
+library(knitr)
+setwd("~/dev/hla/2015-10-08")
+source("~/dev/hla/accordance.R")
+
+kable(performance, digits = 2)
+```
+
+# Internal Results
+
+# References
