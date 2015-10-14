@@ -127,6 +127,8 @@ def readin(typer):
     for key, value in sorted( d.items() ): #sort keys, i.e. the sample ID, so that it is the same in every result file
         outfile.write( str(key) + '\t' + str(" ".join(value)) + '\n' )
     outfile.close()
+
+    return d
     
 if __name__ == "__main__":
     readin()

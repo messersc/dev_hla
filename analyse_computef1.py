@@ -5,63 +5,15 @@ import re
 import csv
 import sys
 from collections import Counter
+from readin.py import readin
 
 def get_reference():
     ref = {}
-    with open('ref') as f:
+    with open('output/ref') as f:
         for line in f:
             x = line.split()
             ref.update({x[0]:x[1:]})
     return ref
-
-
-def readin(typer, dir = sys.argv[1]):
-
-    dl ='\t'
-    if typer == "optitype":
-        regexp = re.compile(r'.*result.tsv$')
-    if typer == "bwakit":
-        regexp = re.compile(r'.*hla.top$')
-    if typer == "hlassign":
-        regexp = re.compile(r'.*calls.tsv$')
-        dl = " "
-    if typer == "phlat":
-        regexp = re.compile(r'.*sum$')
-
-    d = {}
-
-    for root, dirs, files in os.walk(dir):
-        for name in files:
-            if regexp.search(name):
-                name = (os.path.join(name))
-                f = open(os.path.join(root,name))
-
-                # For the exome datasets:
-                #newnameregex = re.compile(r'.*([ES]RR[0-9]{6})/\out$')
-                # For the BIH datasets
-                #newnameregex  = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-([BIH|C].*)\/out')
-                # For the Panel datasets
-                newnameregex  = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-(.*[0-9])\/out$')
-                name = newnameregex.sub(r'\1', root)
-
-                print(typer + ": " + name)
-
-                try:
-                    l = []
-                    reader = csv.reader(f, delimiter=dl)
-                    genes = ["A","B","C"]
-                    for row in reader:
-                        for cell in row:
-                            print(cell) ########################################
-                            cell = re.sub("HLA-","", cell)
-                            if re.match("[ABC]\*", cell):
-                                if not ',' in cell:
-                                    l.extend([cell])
-                finally:
-                    f.close()
-
-                d.update({name:l})
-    return d
 
 def fit_to_precision(hlas, precision="4d"):
     if precision == "2d":
