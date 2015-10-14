@@ -20,11 +20,14 @@ def readin(typer):
                 f = open(os.path.join(root,name))
                 
                 # For the exome datasets:
-                newnameregex = re.compile(r'.*([ES]RR[0-9]{6})/\out$')
+                #newnameregex = re.compile(r'.*([ES]RR[0-9]{6})/\out$')
                 # For the BIH datasets
-                newnameregex = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-([BIH|C].*)\/out')
+                #newnameregex = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-([BIH|C].*)\/out')
                 # For the Panel datasets
-                newnameregex = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-(.*[0-9])\/out$')
+                #newnameregex = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-(.*[0-9])\/out$')
+
+                # For all datasets??
+                newnameregex = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-([BIH|C|[ES]RR].*)\/out')
                 
                 name = newnameregex.sub(r'\1', root)
                 print(typer + ": " + name)
