@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+import re
+import os
+import csv
 
 def readin(typer):
 
@@ -18,19 +21,9 @@ def readin(typer):
             if regexp.search(name):
                 name = (os.path.join(name))
                 f = open(os.path.join(root,name))
-                
-                # For the exome datasets:
-                #newnameregex = re.compile(r'.*([ES]RR[0-9]{6})/\out$')
-                # For the BIH datasets
-                #newnameregex = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-([BIH|C].*)\/out')
-                # For the Panel datasets
-                #newnameregex = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-(.*[0-9])\/out$')
-
-                # For all datasets??
-                newnameregex = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-([BIH|C|[ES]RR].*)\/out')
-                
+                newnameregex = re.compile(r'work\/hla\.(?:bwakit|optitype|phlat|hlassign)\..{6}-(BIH|C|I|[ES]RR.*[0-9])\/out')
                 name = newnameregex.sub(r'\1', root)
-                print(typer + ": " + name)
+                # print(typer + ": " + name)
                 
                 if typer == "optitype":
                     try:
@@ -125,7 +118,7 @@ def readin(typer):
                     d.update({name:l})
     
     
-    outfile = open("output/{}".format(typer), 'w' )
+    outfile = open("output/{}_test".format(typer), 'w' )
     
     for key, value in sorted( d.items() ): #sort keys, i.e. the sample ID, so that it is the same in every result file
         outfile.write( str(key) + '\t' + str(" ".join(value)) + '\n' )

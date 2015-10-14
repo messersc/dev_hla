@@ -3,9 +3,8 @@
 import os
 import re
 import csv
-import sys
 from collections import Counter
-from readin.py import readin
+from readin_writeout import readin
 
 def get_reference():
     ref = {}
@@ -50,7 +49,7 @@ def compare_ref_pred(ref, predictions):
             TP += len(list((r & p).elements()))
             FP += len(list((p - r).elements()))
             FN += len(list((r - p).elements()))
-            notype += 6-len(list(r.elements))
+            notype += 6-len(list(r.elements()))
 
         FP = FP-notype
         try:

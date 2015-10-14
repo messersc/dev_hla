@@ -3,3 +3,4 @@
 *.swp
 .Rproj.user
 .R*
+__pycache__
