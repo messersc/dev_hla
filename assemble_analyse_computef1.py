@@ -8,7 +8,7 @@ from collections import Counter
 
 def get_reference():
     ref = {}
-    with open('ref') as f:
+    with open('output/ref') as f:
         for line in f:
             x = line.split()
             ref.update({x[0]:x[1:]})
@@ -52,7 +52,6 @@ def readin(typer, dir = sys.argv[1]):
                     genes = ["A","B","C"]
                     for row in reader:
                         for cell in row:
-                            print(cell) ########################################
                             cell = re.sub("HLA-","", cell)
                             if re.match("[ABC]\*", cell):
                                 if not ',' in cell:
