@@ -9,22 +9,22 @@ build_ref_table <- function(){
 }
 
 # load all result files
-load_results <- function(d = getwd()){
+load_results <- function(){
   #build_ref_table()
-  ref <<- read.table("ref.csv", quote="\"", row.names=1)[-c(3,7,13),]
+  ref <<- read.table("ref.csv", quote="\"", row.names=1)#[-c(3,7,13),]
   for (i in typer){
     assign(i, read.table(i, quote="\"", row.names=1)[1:6], envir = .GlobalEnv)
   }
 }
 
-find_consensus <- function(ref, typer){
-  samples = rownames(ref)
+find_consensus <- function(){
+  #ref = ref[which(rownames(ref) %in% names(keepers2)),]
+  samples <<- rownames(ref)
     
   for (i in typer){
-    samples = intersect(samples, rownames(get(i)))    
+    samples <<- intersect(samples, rownames(get(i)))    
   }
-  samples <- sort(samples)
-  samples <<- samples
+  samples <<- sort(samples)
   
   # sort and filter according to results
   xref <<- ref[match(samples, rownames(ref)),1:6]
@@ -57,7 +57,7 @@ build_performance_table <- function(typer, precision){
   else return('STOP')
     
   load_results()
-  find_consensus(ref, typer)
+  find_consensus()
 
   for (x in c("xref", typer)){
     assign(x, apply(get(x), c(1,2), fit_allele_to_precision, pattern, ncolon)) #cellwise trimming of type to wanted precision
@@ -102,18 +102,22 @@ compute_performance <- function(hittable, nopred){
   p = matrix(rep(hittable[,length(typer)+1], length(typer)), ncol=length(typer))
   
   fp = p - hittable[,1:length(typer)] - nopred
-  
-  fdr = colSums(fp)/(colSums(fp) + colSums(hittable[,1:length(typer)]))
-  
+  # recall
   tpr = colSums(hittable[,1:length(typer)]) / colSums(p)
+    
+  fdr = colSums(fp)/(colSums(fp) + colSums(hittable[,1:length(typer)]))
+  #precision
+  ppv = 1 - fdr
   
-  return(cbind(tpr, fdr))
+  f_micro = (2*tpr*ppv)/(tpr+ppv)
+  
+  table = (cbind("Recall"=tpr,"Precision"=ppv, "Misclassification rate"=fdr, "F_micro measure"=f_micro))
+  return(table)
 }
 
-main <- function(precision='4d'){
 options(stringsAsFactors = FALSE)
 library(stringr)
-
+precision='4d'
 typer = c()
 for (x in c("optitype", "bwakit", "hlassign", "phlat")){
   if (file.exists(x) &&  file.info(x)$size != 0 ) typer = append(typer, x)
@@ -126,6 +130,3 @@ nopred     =  acc[[2]]
 
 performance = compute_performance(accordance, nopred)
 View(performance)
-}
-
-main()

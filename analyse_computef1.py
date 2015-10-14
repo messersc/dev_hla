@@ -5,6 +5,7 @@ import re
 import csv
 import sys
 from collections import Counter
+from readin.py import readin
 
 def get_reference():
     ref = {}
@@ -13,54 +14,6 @@ def get_reference():
             x = line.split()
             ref.update({x[0]:x[1:]})
     return ref
-
-
-def readin(typer, dir = sys.argv[1]):
-
-    dl ='\t'
-    if typer == "optitype":
-        regexp = re.compile(r'.*result.tsv$')
-    if typer == "bwakit":
-        regexp = re.compile(r'.*hla.top$')
-    if typer == "hlassign":
-        regexp = re.compile(r'.*calls.tsv$')
-        dl = " "
-    if typer == "phlat":
-        regexp = re.compile(r'.*sum$')
-
-    d = {}
-
-    for root, dirs, files in os.walk(dir):
-        for name in files:
-            if regexp.search(name):
-                name = (os.path.join(name))
-                f = open(os.path.join(root,name))
-
-                # For the exome datasets:
-                #newnameregex = re.compile(r'.*([ES]RR[0-9]{6})/\out$')
-                # For the BIH datasets
-                #newnameregex  = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-([BIH|C].*)\/out')
-                # For the Panel datasets
-                newnameregex  = re.compile(r'.*[bwakit|optitype|phlat|hlassign]\..{6}-(.*[0-9])\/out$')
-                name = newnameregex.sub(r'\1', root)
-
-                print(typer + ": " + name)
-
-                try:
-                    l = []
-                    reader = csv.reader(f, delimiter=dl)
-                    genes = ["A","B","C"]
-                    for row in reader:
-                        for cell in row:
-                            cell = re.sub("HLA-","", cell)
-                            if re.match("[ABC]\*", cell):
-                                if not ',' in cell:
-                                    l.extend([cell])
-                finally:
-                    f.close()
-
-                d.update({name:l})
-    return d
 
 def fit_to_precision(hlas, precision="4d"):
     if precision == "2d":
@@ -72,19 +25,14 @@ def fit_to_precision(hlas, precision="4d"):
     else: return('STOP')
 
     def fit_allele(string, regex=pattern, ncolon=ncolon):
-         if (len(string) == "0"):
-            return("nottyped")
-         elif string.count(":") >= ncolon:
+         if string.count(":") >= ncolon:
             return(re.sub(regex, '\\1', string))
          else:
             return(None)
 
-    return list(map(fit_allele, hlas))
-
-def get_multiset(hlas):
+    hlas = list(map(fit_allele, hlas))
     hlas = filter(None, hlas)
     return Counter(hlas)
-
 
 def compare_ref_pred(ref, predictions):
     performancedict = {}
@@ -94,19 +42,15 @@ def compare_ref_pred(ref, predictions):
         FP = 0
         FN = 0
         notype = 0
+
         for samplename,hlas in samples.items():
             p = fit_to_precision(hlas)
             r = fit_to_precision(ref.get(samplename))
 
-            # get the number of alleles not typed for requested precision
-            notype += sum(x is None for x in r)
-
-            p = get_multiset(p)
-            r = get_multiset(r)
-
             TP += len(list((r & p).elements()))
             FP += len(list((p - r).elements()))
             FN += len(list((r - p).elements()))
+            notype += 6-len(list(r.elements))
 
         FP = FP-notype
         try:
@@ -138,7 +82,7 @@ def main():
 
     predictions = {}
     for typer in ['optitype','hlassign','bwakit', 'phlat']:
-        predictions.update({typer:readin( typer = typer)})
+        predictions.update({typer:readin(typer = typer)})
 
     print_all(ref, predictions)
     pd = compare_ref_pred(ref, predictions)

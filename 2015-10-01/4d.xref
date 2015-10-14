@@ -34,6 +34,7 @@ CELL_ID_1327 nottyped nottyped nottyped nottyped nottyped C*15:10
 CELL_ID_1329 A*02:30 A*03:01 nottyped B*47:01 nottyped nottyped
 CELL_ID_1347 A*03:01 A*11:01 B*07:02 B*51:01 C*07:02 C*15:06
 CELL_ID_1364 nottyped nottyped nottyped nottyped nottyped nottyped
+CELL_ID_1401 A*02:01 A*24:30 B*15:02 B*15:25 nottyped nottyped
 CELL_ID_1405 A*01:01 A*11:01 B*35:08 B*51:08 nottyped nottyped
 CELL_ID_1406 A*24:02 A*31:01 B*07:02 B*15:17 nottyped nottyped
 CELL_ID_1411 nottyped nottyped nottyped nottyped nottyped nottyped
@@ -56,6 +57,7 @@ CELL_ID_1967 nottyped A*68:35 nottyped nottyped nottyped nottyped
 CELL_ID_1989 A*02:01 A*03:31 nottyped nottyped nottyped nottyped
 CELL_ID_1992 A*01:01 A*01:01 B*08:01 B*51:08 C*07:01 C*16:02
 CELL_ID_1999 nottyped nottyped nottyped nottyped nottyped nottyped
+CELL_ID_2012 nottyped nottyped B*15:01 B*39:09 nottyped nottyped
 CELL_ID_2018 A*02:01 A*33:01 B*14:02 B*40:01 C*03:04 C*08:02
 CELL_ID_2023 A*03:01 A*24:02 B*41:01 B*51:06 C*14:02 C*17:01
 CELL_ID_2030 A*02:07 A*66:01 B*40:03 B*41:02 C*03:04 C*17:01
