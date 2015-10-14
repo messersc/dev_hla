@@ -25,19 +25,14 @@ def fit_to_precision(hlas, precision="4d"):
     else: return('STOP')
 
     def fit_allele(string, regex=pattern, ncolon=ncolon):
-         if (len(string) == "0"):
-            return("nottyped")
-         elif string.count(":") >= ncolon:
+         if string.count(":") >= ncolon:
             return(re.sub(regex, '\\1', string))
          else:
             return(None)
 
-    return list(map(fit_allele, hlas))
-
-def get_multiset(hlas):
+    hlas = list(map(fit_allele, hlas))
     hlas = filter(None, hlas)
     return Counter(hlas)
-
 
 def compare_ref_pred(ref, predictions):
     performancedict = {}
@@ -47,19 +42,15 @@ def compare_ref_pred(ref, predictions):
         FP = 0
         FN = 0
         notype = 0
+
         for samplename,hlas in samples.items():
             p = fit_to_precision(hlas)
             r = fit_to_precision(ref.get(samplename))
 
-            # get the number of alleles not typed for requested precision
-            notype += sum(x is None for x in r)
-
-            p = get_multiset(p)
-            r = get_multiset(r)
-
             TP += len(list((r & p).elements()))
             FP += len(list((p - r).elements()))
             FN += len(list((r - p).elements()))
+            notype += 6-len(list(r.elements))
 
         FP = FP-notype
         try:
@@ -91,7 +82,7 @@ def main():
 
     predictions = {}
     for typer in ['optitype','hlassign','bwakit', 'phlat']:
-        predictions.update({typer:readin( typer = typer)})
+        predictions.update({typer:readin(typer = typer)})
 
     print_all(ref, predictions)
     pd = compare_ref_pred(ref, predictions)
