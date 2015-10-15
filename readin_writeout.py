@@ -21,9 +21,11 @@ def readin(typer):
             if regexp.search(name):
                 name = (os.path.join(name))
                 f = open(os.path.join(root,name))
-                newnameregex = re.compile(r'work\/hla\.(?:bwakit|optitype|phlat|hlassign)\..{6}-(BIH|C|I|[ES]RR.*[0-9])\/out')
+                newnameregex = re.compile(r'work\/hla\.(?:bwakit|optitype|phlat|hlassign)\..{6}-((?:BIH|C|I|[ES]RR).*[0-9])\/out')
                 name = newnameregex.sub(r'\1', root)
-                # print(typer + ": " + name)
+                
+                # "progress bar"
+                print(typer + ": " + name)
                 
                 if typer == "optitype":
                     try:
@@ -118,7 +120,7 @@ def readin(typer):
                     d.update({name:l})
     
     
-    outfile = open("output/{}_test".format(typer), 'w' )
+    outfile = open("output/{}".format(typer), 'w' )
     
     for key, value in sorted( d.items() ): #sort keys, i.e. the sample ID, so that it is the same in every result file
         outfile.write( str(key) + '\t' + str(" ".join(value)) + '\n' )

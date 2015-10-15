@@ -29,9 +29,12 @@ def fit_to_precision(hlas, precision="4d"):
          else:
             return(None)
 
-    hlas = list(map(fit_allele, hlas))
-    hlas = filter(None, hlas)
-    return Counter(hlas)
+    try:
+        hlas = list(map(fit_allele, hlas))
+        hlas = filter(None, hlas)
+        return Counter(hlas)
+    except TypeError:
+        return Counter()
 
 def compare_ref_pred(ref, predictions):
     performancedict = {}
