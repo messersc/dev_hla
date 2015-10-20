@@ -70,12 +70,12 @@ def compare_ref_pred(ref, predictions):
 
 
 def print_all(ref, predictions):
-    print("ref")
+    print("ref"+": "+str(len(ref)))
     for samplename, hla in ref.items():
         print('{}:{}'.format(samplename, hla))
 
     for typer, sample in predictions.items():
-        print(typer)
+        print(typer+": "+str(len(predictions[typer])))
         for samplename, hla in sample.items():
             print('{}:{}'.format(samplename, hla))
 
