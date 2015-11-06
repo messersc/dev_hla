@@ -21,7 +21,7 @@ def readin(typer):
             if regexp.search(name):
                 name = (os.path.join(name))
                 f = open(os.path.join(root,name))
-                newnameregex = re.compile(r'work\/hla\.(?:bwakit|optitype(?:_yara)?|phlat|hlassign)\..{6}-((?:BIH|C|I|[ES]RR).*[0-9])\/out')
+                newnameregex = re.compile(r'work\/hla\.(?:bwakit|optitype(?:_yara)?|phlat|hlassign)\..{6}-((?:BIH|C|I|[ES]RR)-?[0-9]*.*)\/out')
                 name = newnameregex.sub(r'\1', root)
                 
                 # "progress bar"
@@ -129,4 +129,4 @@ def readin(typer):
     return d
     
 if __name__ == "__main__":
-    readin()
+    readin('optitype')
