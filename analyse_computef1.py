@@ -52,7 +52,20 @@ def compare_ref_pred(ref, predictions):
             TP += len(list((r & p).elements()))
             FP += len(list((p - r).elements()))
             FN += len(list((r - p).elements()))
-            notype += 6-len(list(r.elements()))
+            noref  = 6-len(list(r.elements()))
+            nopred = 6-len(list(p.elements()))
+            # we need to handle missing values in prediction and reference
+            correct = noref - nopred
+            if correct < 0: correct = 0
+            notype += correct
+            
+            print("P: " + str(p) + "\n R: "+ str(r) +
+                    "\n TP: " + str(len(list((r & p).elements()))) +
+                    "\n FP: " + str(len(list((p - r).elements()))) +
+                    "\n FN: " + str(len(list((r - p).elements()))) +
+                    "\n noref: " + str(noref) +
+                    "\n nopred: " + str(nopred))
+
 
         FP = FP-notype
         try:
