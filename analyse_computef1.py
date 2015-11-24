@@ -5,6 +5,7 @@ import re
 import csv
 from collections import Counter
 from readin_writeout import readin
+import pandas
 
 def get_reference():
     ref = {}
@@ -58,13 +59,16 @@ def compare_ref_pred(ref, predictions):
             correct = noref - nopred
             if correct < 0: correct = 0
             notype += correct
-            
-            print("P: " + str(p) + "\n R: "+ str(r) +
-                    "\n TP: " + str(len(list((r & p).elements()))) +
-                    "\n FP: " + str(len(list((p - r).elements()))) +
-                    "\n FN: " + str(len(list((r - p).elements()))) +
-                    "\n noref: " + str(noref) +
-                    "\n nopred: " + str(nopred))
+           
+            if typer == "optitype" and len(list((r - p).elements())) > 0:
+            #if typer == "optitype" and re.search("normal", samplename) and len(list((r - p).elements())) > 0:
+                print(samplename)
+                print("  P: " + str(p) + "\n  R: "+ str(r) +
+                        "\n\tTP: " + str(len(list((r & p).elements()))) +
+                        "\t FP: " + str(len(list((p - r).elements()))) +
+                        "\t FN: " + str(len(list((r - p).elements()))) +
+                        "\t noref: " + str(noref) +
+                        "\t nopred: " + str(nopred))
 
 
         FP = FP-notype
@@ -99,11 +103,15 @@ def main():
     for typer in ['optitype','hlassign','bwakit', 'phlat']:
         predictions.update({typer:readin(typer = typer)})
 
-    print_all(ref, predictions)
+    # print_all(ref, predictions)
     pd = compare_ref_pred(ref, predictions)
 
-    for typer, values in pd.items():
-        print('{}:{}'.format(typer, values))
+    #for typer, values in pd.items():
+    #    print('{}:{}'.format(typer, values))
+    
+    df = pandas.DataFrame(pd).T
+    print(df)
+
 
 if __name__ == "__main__":
     main()
